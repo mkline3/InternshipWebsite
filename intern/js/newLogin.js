@@ -24,9 +24,13 @@ $(document).ready(function(){
 	});
 	$("#submit").click(function(){
 		console.log("clicked");
-		if($("p1").val() !== $("p2").val() ){
-			console.log("inside");
+		if($("#p1").val() !== $("#p2").val() ){
+			//console.log("inside");
 			alert("You did not retype the same password");
+		}
+		else{
+			//they go to review from here
+
 		}
 	});
 });
