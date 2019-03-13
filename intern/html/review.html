@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Find Reviews</title>
+		<h1>Reviews</h1>
+	</head>
+	<body>
+		<div id="Location">
+			<select name="state" id="state">
+				<option selected = "true" id=" ">All</option>
+			</select>
+			<label for="state">Pick a Location</label>
+		</div>
+		<div id="Pay">
+			<select name="paid" id="paid">
+				<option selected="true" id=" ">Any</option>
+				<option id="hourly">Hourly Wage</option>
+				<option id="salary">Salary</option>
+				<option id="unpaid">Unpaid</option>
+			</select>
+			<label for="paid">Select Pay Type</label>
+		</div>
+		<div id="Company">
+			<select name="name" id="name">
+				<option selected="true" id=''>All</option>
+			</select>
+			<label for="name">Select Company</label>
+		</div>
+		<div id='Rating'>
+			<select name="rate" id="rate">
+				<option selected="true" id=''>Any</option>
+				<option id="low">Low to High</option>
+				<option id="high">High to Low</option>
+			</select>
+			<label for="rate">How would you like to order ratings</label>
+		</div>
+		<br><br>
+		<div id="sub">
+			<input type="submit" id="submit" value="submit">
+		</div>
+
+	</body>
+</html>
