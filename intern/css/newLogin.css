@@ -9,9 +9,9 @@ body{
   margin: 20px 0px 20px 0px;   
 }
 .box{
-  background:white;
+  background:silver;
   width:300px;
-  border-radius:6px;
+  border-radius:10px;
   margin: 0 auto 0 auto;
   padding:0px 0px 70px 0px;
   border: #2980b9 4px solid; 
@@ -49,3 +49,14 @@ h1{
   width:250px;
   font-size:1em;
 }
+input{
+  border-radius:6px;
+  background-color:lightgrey;
+  transition-duration:0.4s;
+}
+input:hover{
+  background-color: silver;
+  color:gray;
+}
+
+
