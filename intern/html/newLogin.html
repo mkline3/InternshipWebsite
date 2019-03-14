@@ -2,16 +2,25 @@
 <html>
 	
 	<head>
-		Create new Login
+		<title>New Login</title>
+		<h1>Create Login</h1>
+		<link rel="stylesheet" type="text/css" href="../css/newLogin.css">
 	</head>
 	<body>
-		<form id="emailField">
-			Enter UMW email: <br>
-			<input type="text" id = "email" name="email" value="example@mail.umw.edu">
-			<br>
-			<input type="submit" value="submit" onclick="sending()">
-
+		<form id="emailField" onsubmit="return false">
+			<div class="box">
+				<br> <br>
+				<input type="text" id = "email" name="email" placeholder="example@mail.umw.edu">
+				<input type="submit" id="confirm" value="confirm">
+				<br>
+				<input type="text" id = "p1" name="p1" placeholder="password">
+				<br>
+				<input type="text" id = "p2" name="p2" placeholder="retype password">
+				<br><br>
+				<input type="submit" id="submit" value="submit">				
+			</div>
 		</form>
-		<script type="text/javascript" src="../js/newLogin.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="../js/newLogin.js"></script>
 	</body>
 </html>

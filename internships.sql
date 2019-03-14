@@ -23,6 +23,7 @@ CREATE TABLE Reviews (
 
 CREATE TABLE Users (
 	user_name text PRIMARY KEY,
-	email text NOT NULL,
+	user_email text NOT NULL,
+	password text NOT NULL
 );
 
