@@ -31,31 +31,35 @@ html ,body {
 
 .App-header .nav {
   align-content: center;
+  height: inherit;
   display: flex;
   background-image: inherit;
 }
 
-.nav #logo {
-  margin-left: calc(40px + 2vmin);
-  height: 100%;
-}
+  .nav #logo {
+    margin-left: calc(40px + 2vmin);
+    height: 8vh;
+  }
 
-.nav #searchBar {
-  margin-left: calc(20px + 2vmin);
-  border: none;
-  height: 100%;
-  min-width: 24vmax;
-  max-width: 28vmax;
-  width: calc(20px + 2vmin);
-  background-image: inherit;
-  color: white;
-  font-size: calc(2px + 2vmin);
-}
+  .nav #searchBar {
+    padding-top: 0;
+    margin-top: 0;
+    margin-left: calc(20px + 2vmin);
+    padding-left: 5px;
+    border: none;
+    height: inherit;
+    min-width: 24vmax;
+    max-width: 28vmax;
+    width: calc(20px + 2vmin);
+    background-image: inherit;
+    color: white;
+    font-size: calc(2px + 2vmin);
+  }
 
   #searchBar::placeholder {
-    color: #00305e;
-    opacity: .6;
-  }
+      color: #00305e;
+      opacity: .6;
+    }
 
   #searchBar:hover {
     background-image: none;
@@ -76,6 +80,33 @@ html ,body {
     color: white;
   }
 
+  .nav .login-container {
+    padding-top: 0;
+    margin-top: 0;
+    height: inherit;
+    float: right;
+  }
+
+  .nav input[type=text] {
+    height: inherit;
+    border: none;
+  }
+
+  .nav .login-container button {
+    float: right;
+    padding-left: 10px;
+    margin-top: 8px;
+    margin-right: 16px;
+    background: #ddd;
+    font-size: 17px;
+    border: none;
+    cursor: pointer;
+  }
+
+  .nav .login-container button:hover {
+    background: #ccc;
+  }
+
 #banner {
   margin-top: 8vh;
   height: 180px;
@@ -90,23 +121,47 @@ html ,body {
   width: 100%;
   height: 54px;
   min-height: 54px;
+  display: flex;
+  font-family: Arial, Helvetica, sans-serif;
 }
+
+  .Secondary-nav a {
+    color: #798086;
+    height: 100%;
+    width: 10%;
+    margin: auto;
+    text-align: center;
+    text-decoration: none;
+    font-size: 17px;
+    padding-top: 10px;
+    overflow: hidden;
+  }
+
+  .Secondary-nav a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+
+  .Secondary-nav a.active {
+    background-color: #2196F3;
+    color: white;
+  }
 
 .Review-map-container {
   position: relative;
   margin: auto;
-  margin-top: 10vh;
-  margin-bottom: 20vh;
-  height: 80vh;
-  width: 65vw;
+  height: 85vh;
+  width: 100%;
   font-size: calc(20px + 1vmin);
   color: white;
 }
 
 .Review-container {
   position: absolute;
-  height: 100%;
-  width: 35%;
+  margin-left: 6%;
+  margin-top: 1%;
+  height: 90%;
+  width: 22%;
   justify-content: center;
   background-color: #e6e6e6;
   border-radius: 20px;
@@ -114,23 +169,18 @@ html ,body {
   border-bottom: none;
   border-right: none;
   border-color: #ffffff;
+  z-index: 2;
 }
 
 .Map-container {
   position: absolute;
-  margin-left: 36%;
   height: 100%;
-  width: 65%;
+  width: 100%;
   background-color: #e6e6e6;
+  z-index: 1;
 }
 
 #map {
-  border-radius: 20px;
-  border: 3px solid;
-  border-bottom: none;
-  border-right: none;
-  border-color: #ffffff;
-  overflow: hidden;
 }
 
 .App-link {
