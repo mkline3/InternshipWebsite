@@ -1,0 +1,147 @@
+html ,body {
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.App-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-image: linear-gradient(#f4f4f4,#cccccc);
+  min-height: 50px;
+  height: 8vh;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  z-index: 1000;
+}
+
+.App-header .nav {
+  align-content: center;
+  display: flex;
+  background-image: inherit;
+}
+
+.nav #logo {
+  margin-left: calc(40px + 2vmin);
+  height: 100%;
+}
+
+.nav #searchBar {
+  margin-left: calc(20px + 2vmin);
+  border: none;
+  height: 100%;
+  min-width: 24vmax;
+  max-width: 28vmax;
+  width: calc(20px + 2vmin);
+  background-image: inherit;
+  color: white;
+  font-size: calc(2px + 2vmin);
+}
+
+  #searchBar::placeholder {
+    color: #00305e;
+    opacity: .6;
+  }
+
+  #searchBar:hover {
+    background-image: none;
+    background-color: #798086;
+  }
+
+  #searchBar:hover::placeholder {
+    color: white;
+  }
+
+  #searchBar:focus {
+    background-image: none;
+    background-color: #798086;
+    outline: none;
+  }
+
+  #searchBar:focus::placeholder {
+    color: white;
+  }
+
+#banner {
+  margin-top: 8vh;
+  height: 180px;
+  min-height: 180px;
+  width: 100%;
+}
+
+.Secondary-nav {
+  background-color: white;
+  border-bottom: 1px solid;
+  border-color: #e9eaeb; 
+  width: 100%;
+  height: 54px;
+  min-height: 54px;
+}
+
+.Review-map-container {
+  position: relative;
+  margin: auto;
+  margin-top: 10vh;
+  margin-bottom: 20vh;
+  height: 80vh;
+  width: 65vw;
+  font-size: calc(20px + 1vmin);
+  color: white;
+}
+
+.Review-container {
+  position: absolute;
+  height: 100%;
+  width: 35%;
+  justify-content: center;
+  background-color: #e6e6e6;
+  border-radius: 20px;
+  border: 3px solid;
+  border-bottom: none;
+  border-right: none;
+  border-color: #ffffff;
+}
+
+.Map-container {
+  position: absolute;
+  margin-left: 36%;
+  height: 100%;
+  width: 65%;
+  background-color: #e6e6e6;
+}
+
+#map {
+  border-radius: 20px;
+  border: 3px solid;
+  border-bottom: none;
+  border-right: none;
+  border-color: #ffffff;
+  overflow: hidden;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,48 @@
+<CTYPE html>
+	<html>
+		<head>
+			<!--Default StyleSheet-->
+			<link rel="stylesheet" href="..\css\App.css" type="text/css">
+			<!--OpenLayers StyleSheet-->
+			<link rel="stylesheet" href="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/css/ol.css" type="text/css">
+    		<script src="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/build/ol.js"></script>
+    		<!--jonatawalker ol-geocoder StyleSheet-->
+    		<link rel="stylesheet" href="..\css\ol-geocoder.css" type="text/css">
+    		<script src="..\js\ol-geocoder.js"></script>
+
+			<title>University of Mary Washington Internship</title>
+		</head>
+	</html>
+
+	<div class = "App-header">
+		<div class = "nav">
+			<img src = "..\img\umw.png" id = "logo">
+			<input id = "searchBar" type = "text" placeholder="Search for anything...">
+			
+		</div>
+	</div>
+
+	<img src = "..\img\banner-copy.png" id = "banner">
+
+	<div class = "Secondary-nav"></div>
+	
+	<div class = "Review-map-container">
+		<div class = "Review-container">
+		</div>
+		<div id = 'map' class = "Map-container"></div>
+		<!--OpenLayers map creation-->
+		<script type="text/javascript">
+      		var map = new ol.Map({
+        		target: 'map',
+        		layers: [
+          		new ol.layer.Tile({
+            		source: new ol.source.OSM()
+          		})
+        		],
+        		view: new ol.View({
+          			center: ol.proj.fromLonLat([-77.475, 38.302]),
+          			zoom: 16
+        		})
+      		});
+    </script>
+	</div>
