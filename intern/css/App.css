@@ -26,10 +26,11 @@ html ,body {
   padding: 0;
   font-size: calc(10px + 2vmin);
   color: white;
-  z-index: 1000;
+  z-index: 100;
 }
 
 .App-header .nav {
+  position: inherit;
   align-content: center;
   height: inherit;
   display: flex;
@@ -80,30 +81,34 @@ html ,body {
     color: white;
   }
 
-  .nav .login-container {
-    padding-top: 0;
-    margin-top: 0;
-    height: inherit;
+  .App-header .login-container {
+    margin-left: auto;
+    margin-right: 3%;
+    margin-bottom: 10%;
+    z-index: 101;
+  }
+
+  .App-header input[type=text] {
     float: right;
-  }
-
-  .nav input[type=text] {
-    height: inherit;
+    margin: auto;
+    margin-left: 1%;
     border: none;
+    height: 50%;
+    padding-left: 10px;
   }
 
-  .nav .login-container button {
+  .App-header .login-container button {
     float: right;
     padding-left: 10px;
-    margin-top: 8px;
-    margin-right: 16px;
+    margin-left: 16px;
     background: #ddd;
+    height: 50%;
     font-size: 17px;
     border: none;
     cursor: pointer;
   }
 
-  .nav .login-container button:hover {
+  .App-header .login-container button:hover {
     background: #ccc;
   }
 
@@ -115,31 +120,36 @@ html ,body {
 }
 
 .Secondary-nav {
-  background-color: white;
-  border-bottom: 1px solid;
-  border-color: #e9eaeb; 
-  width: 100%;
-  height: 54px;
-  min-height: 54px;
+  background-image: inherit;
+  border-color: #e9eaeb;
+  float: right;
+  margin-right: 0
+  margin-left: auto;
+  padding-left: 20px;
+  width: 25vw;
+  height: 8vh;
   display: flex;
   font-family: Arial, Helvetica, sans-serif;
+  overflow: hidden;
 }
 
   .Secondary-nav a {
-    color: #798086;
+    color: #00305e;
+    width: 50%;
     height: 100%;
-    width: 10%;
+    padding-top: 2vh;
     margin: auto;
     text-align: center;
     text-decoration: none;
     font-size: 17px;
-    padding-top: 10px;
     overflow: hidden;
   }
 
   .Secondary-nav a:hover {
-    background-color: #ddd;
-    color: black;
+    background-image: none;
+    background-color: #798086;
+    color: white;
+    overflow: hidden;
   }
 
   .Secondary-nav a.active {
@@ -149,9 +159,11 @@ html ,body {
 
 .Review-map-container {
   position: relative;
+  padding-top: 10vh;
+  padding-bottom: 5vh;
   margin: auto;
-  height: 85vh;
-  width: 100%;
+  height: 70vh;
+  width: 85%;
   font-size: calc(20px + 1vmin);
   color: white;
 }
