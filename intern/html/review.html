@@ -9,9 +9,24 @@
 		<br><br><br>
 		<form id="filter">
 			<h3>Filter</h3>
-			<div id="Location">
-				<label for="state">Pick a Location</label>
+			<div id="Company">
+				<label for="name">Select Company</label>
+				<select name="name" id="name">
+					<option selected="true" id=''>All</option>
+				</select>
+				
+			</div>
+			<br>
+			<div id="State">
+				<label for="state">Pick a State</label>
 				<select name="state" id="state">
+					<option selected = "true" id=" ">All</option>
+				</select>
+			</div>
+			<br>
+			<div id="City">
+				<label for="city">Pick a City</label>
+				<select name="city" id="city">
 					<option selected = "true" id=" ">All</option>
 				</select>
 			</div>
@@ -23,14 +38,6 @@
 					<option id="hourly">Hourly Wage</option>
 					<option id="salary">Salary</option>
 					<option id="unpaid">Unpaid</option>
-				</select>
-				
-			</div>
-			<br>
-			<div id="Company">
-				<label for="name">Select Company</label>
-				<select name="name" id="name">
-					<option selected="true" id=''>All</option>
 				</select>
 				
 			</div>
