@@ -18,6 +18,7 @@
 		<div class = "nav">
 			<img src = "..\img\umw.png" id = "logo">
 			<div class = "Secondary-nav">
+				<a href="#review"><img src = "..\img\star.png" height = "20" width = "40"><br/>Reviews</a>
   				<a href="#review"><img src = "..\img\addReview.png" height = "20" width = "20"><br/>Add a Review</a>
   				<a href="#newLogin"><img src = "..\img\signIn.png" height = "20" width = "20"><br/>Sign-Up</a>
 			</div>
@@ -35,6 +36,16 @@
 
 	<div class = "Review-map-container">
 		<div class = "Review-container">
+			<h3>SEARCH BY</h3>
+			<form>
+      			<input type="text" placeholder="Company Name" name="Search_Com">
+      			<input type="text" placeholder="State" name="Search_State">
+      			<input type="text" placeholder="City" name="Search_City">
+      			<input type="text" placeholder="Zip Code" name="Search_Zip">
+      			<input type="text" placeholder="Radius" name="Search_Rad">
+      			<p size="6">REVIEW AVERAGE</p>
+      			<input type="range" min = 1 max = 10 step = 1 name="Search_Rate">
+    		</form>
 		</div>
 		<div id = 'map' class = "Map-container"></div>
 		<!--OpenLayers map creation-->
@@ -51,5 +62,9 @@
           			zoom: 16
         		})
       		});
+    </script>
+    <!--OpenLayers Marker Layer-->
+    <script type="text/javascript">
+    	function 
     </script>
 	</div>

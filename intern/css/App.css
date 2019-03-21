@@ -170,19 +170,42 @@ html ,body {
 
 .Review-container {
   position: absolute;
+  font-family: Arial, Helvetica, sans-serif;
+  text-shadow: 2px 2px #001a33;
   margin-left: 6%;
   margin-top: 1%;
   height: 90%;
   width: 22%;
   justify-content: center;
-  background-color: #e6e6e6;
+  background-color: #294664;
   border-radius: 20px;
   border: 3px solid;
   border-bottom: none;
   border-right: none;
-  border-color: #ffffff;
+  border-color: #182C40;
   z-index: 2;
+  color: #efefef;
+  text-align: center;
 }
+  
+  .Review-container input[type=text] {
+    border-bottom: none;
+    border-right: none;
+    border-color: white;
+    border-radius: 10px;
+    height: 8%;
+    width: 65%;
+    margin-bottom: 10px;
+    background-color: #102133;
+    font-size: 14px;
+    padding-left: 12px;
+    color: white;
+  }
+
+  .Review-container input[type=text]::placeholder {
+    color: #efefef;
+    opacity: .8;
+  }
 
 .Map-container {
   position: absolute;
