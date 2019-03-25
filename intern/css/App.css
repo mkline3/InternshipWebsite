@@ -215,7 +215,8 @@ html ,body {
   z-index: 1;
 }
 
-#map {
+#mapSearch {
+  height: 20px;
 }
 
 .App-link {
