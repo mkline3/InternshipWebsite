@@ -23,11 +23,16 @@
 			</div>
 		</div>
 		<div class="login-container">
-    			<form action="/action_page.php">
+    			<form action="/login.php" onsubmit = "login()">
       				<button type="submit">Login</button>
-      				<input type="text" placeholder="Password" name="psw">
-      				<input type="text" placeholder="Username" name="username">
+      				<input type="password" placeholder="Password" name="psw">
+      				<input type="text" placeholder="Email Address" name="username">
     			</form>
+    			<script>
+    				function login(){
+    					alert('you have logged in')
+    				}
+    			</script>
   			</div>
 	</div>
 
