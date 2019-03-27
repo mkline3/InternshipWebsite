@@ -1,5 +1,9 @@
-form.holder{
-	background-color:gray;
+#holder{
+	width:65%;
+	height:750px;
+	float:right;
+	margin-right:100px;
+	background-color:silver;
 	border-radius:20px 20px 20px 20px;
 	border-style:inset;
 	padding-left:55;
@@ -14,7 +18,7 @@ select{
 	background:lightgrey;
 }
 
-form{
+#filter{
 	width:15%;
 	font-size:15px;
 	border-color:gray;
@@ -25,7 +29,9 @@ form{
 	background: silver;
 	padding-left:35px;
 }
-
+form{
+	display:inline-block;
+}
 input{
 	margin:0;
 	border:outset;
