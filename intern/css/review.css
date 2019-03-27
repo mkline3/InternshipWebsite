@@ -1,3 +1,14 @@
+#holder{
+	width:65%;
+	height:750px;
+	float:right;
+	margin-right:100px;
+	background-color:silver;
+	border-radius:20px 20px 20px 20px;
+	border-style:inset;
+	padding-left:55;
+}
+
 select, label{
 	display:block;
 }
@@ -7,17 +18,20 @@ select{
 	background:lightgrey;
 }
 
-form{
+#filter{
 	width:15%;
 	font-size:15px;
-	border-top:2px dashed gray;
-	border-bottom:2px dashed gray;
+	border-color:gray;
+	border-radius: 15px 15px 15px 15px;
+	border-style:outset;
 	box-shadow: inset 0 -1px 0 0 navy, inset 0 1px 0 0 navy, 0 1px 0 0 navy, 0 -1px 0 0 navy;
 	margin-bottom: 1px;
 	background: silver;
 	padding-left:35px;
 }
-
+form{
+	display:inline-block;
+}
 input{
 	margin:0;
 	border:outset;
@@ -30,4 +44,10 @@ input{
 input:hover{
 	background-color: silver;
 	color:gray;
+}
+body{
+	background-color:#294664;
+}
+h1{
+	color:silver;
 }

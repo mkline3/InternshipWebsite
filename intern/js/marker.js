@@ -1,0 +1,1 @@
+import * from "https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/build/ol.js"
