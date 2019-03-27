@@ -21,6 +21,8 @@ app.use(bodyParser.json({type: 'application/json'}));
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.get('/test', async (req, res) =>{
+	//var password = req.query.password;
+	//var email = req.query.email;
 	try{
 		var response = await pool.query('select * from reviews');
 		res.json(response.rows);
