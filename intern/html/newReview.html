@@ -27,19 +27,54 @@
   			</div>
 	</div>
 	<body>
+		<br><br><br><br><br><br><br>
 		<form id="Review">
 			<dvi id="review">
+				
 				<div id="Company">
+					<h2> Company</h2>
 					<input type="text" id = "company" name="company" placeholder="Company">
-				</div>
-					<input type="submit" id="confirm" value="confirm">
 					<br>
-					<input type="text" id = "p1" name="p1" placeholder="password">
+					<input type="text" id = "address" placeholder="Company Address">
 					<br>
-					<input type="text" id = "p2" name="p2" placeholder="retype password">
+					<input type="text" id = "city" placeholder="City">
+					<br>
+					<input type="text" id="state" placeholder="State">
 				<br><br>
+				</div>
+				<div id="details">
+					<h3>Internship Details</h3>
+					
+					<select id="type">
+						<option id="" disabled selected>Pick Internship type</option>
+
+					</select>
+					<br>
+					<select id="pay">
+						<option id="" disabled selected>Pick Pay Typ</option>
+						<option id="unpaid">Unpaid</option>
+						<option id="hourly">Hourly</option>
+						<option id="salary">Salary</option>
+					</select>
+					<br><br>
+				</div>
+				<div id="extras">
+					<h3>Rating</h3>
+					<select id="review">
+						<option id='' disabled selected>Rate with Stars</option>
+						<option id="1">1</option>
+						<option id="2">2</option>
+						<option id="3">3</option>
+						<option id="4">4</option>
+						<option id="5">5</option>
+					</select>
+					<br><br><br>
+					<h3>Comments</h3>
+					<textarea rows="10" cols="100" id="textbox" form="usrform" placeholder="Enter brief review here...."></textarea>
+				</div>
 				<input type="submit" id="submit" value="submit">
 			</dvi>
+
 		</form>
 	</body>
 
