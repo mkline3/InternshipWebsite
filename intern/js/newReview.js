@@ -1,6 +1,7 @@
 $(document).ready(function(){
 	$("#ifOther").hide();
 	$("#rate").hide();
+	$("#company").hide();
 	$("#type").change(function(){
 		if($("#type").val() === "Other"){
 			$("#ifOther").show();
@@ -16,6 +17,14 @@ $(document).ready(function(){
 		}
 		else{
 			$("#rate").hide();
+		}
+	});
+	$("#Com").change(function(){
+		if($("#Com").val() === "Other"){
+			$("#company").show();
+		}
+		else{
+			$("#company").hide();
 		}
 	});
 		

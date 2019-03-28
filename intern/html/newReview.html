@@ -27,22 +27,29 @@
   			</div>
 	</div>
 	<body>
-		<br><br><br><br><br><br><br>
+		<br><br><br><br>
 		<form id="Review">
 			<dvi id="review">
 				
 				<div id="Company">
 					<h2> Company</h2>
-					<input type="text" id = "company" name="company" placeholder="Company">
-					<br>
-					<input type="text" id = "address" placeholder="Company Address">
-					<br>
-					<input type="text" id = "city" placeholder="City">
-					<br>
-					<input type="text" id="state" placeholder="State">
-					<br>
-					<input type="text" id="Country" placeholder="Country">
-				<br><br>
+					<select id="Com">
+						<option id='' disabled selected>Choose Company</option>
+						<option id="Other">Other</option>
+					</select>
+					<div id="company">
+						<input type="text" id = "comp" name="company" placeholder="Company Name">
+					</div>
+					<div>
+						<input type="text" id = "address" placeholder="Company Address">
+					</div>
+						<input type="text" id = "city" placeholder="City">
+					<div>
+						<input type="text" id="state" placeholder="State">
+					</div>
+					<div>
+						<input type="text" id="Country" placeholder="Country">
+					</div>
 				</div>
 				<div id="details">
 					<h3>Internship Details</h3>
