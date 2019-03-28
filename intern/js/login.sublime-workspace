@@ -1,0 +1,387 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"v",
+				"Virginia"
+			],
+			[
+				"num",
+				"num_hits"
+			],
+			[
+				"new",
+				"new_array"
+			],
+			[
+				"srm",
+				"smrocket"
+			],
+			[
+				"pred",
+				"preds_entropy3"
+			],
+			[
+				"data",
+				"data_y"
+			],
+			[
+				"read",
+				"read_csv"
+			],
+			[
+				"y",
+				"y_test1"
+			],
+			[
+				"x",
+				"x_train"
+			],
+			[
+				"de",
+				"dtree_entropy_mod2"
+			],
+			[
+				"i",
+				"income"
+			],
+			[
+				"ca",
+				"capital-gain"
+			],
+			[
+				"c",
+				"capital-loss"
+			],
+			[
+				"edu",
+				"education-num"
+			],
+			[
+				"D",
+				"DPF"
+			],
+			[
+				"all",
+				"all_data"
+			],
+			[
+				"sc",
+				"scores"
+			],
+			[
+				"wor",
+				"workshop"
+			],
+			[
+				"re",
+				"response"
+			],
+			[
+				"date",
+				"dateFormat"
+			],
+			[
+				"atte",
+				"attendees"
+			],
+			[
+				"work",
+				"workshop_id"
+			],
+			[
+				"id",
+				"id_num"
+			],
+			[
+				"workshop",
+				"workshop_id"
+			],
+			[
+				"count",
+				"count_num"
+			],
+			[
+				"max",
+				"max_num"
+			],
+			[
+				"works",
+				"workshop_id"
+			],
+			[
+				"dates",
+				"dates"
+			],
+			[
+				"add",
+				"add-workshop"
+			],
+			[
+				"input",
+				"input"
+			],
+			[
+				"str",
+				"strcmp"
+			],
+			[
+				"back",
+				"background"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 130.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/Ilona/Desktop/CPSC430/InternshipWebsite/internships.sql",
+		"/Users/Ilona/Desktop/things/CPSC350/workshop2/workshop2.js",
+		"/Users/Ilona/Desktop/CPSC430/InternshipWebsite/intern/js/login.js",
+		"/Users/Ilona/Desktop/CPSC430/InternshipWebsite/intern/js/login.php",
+		"/Users/Ilona/Desktop/CPSC430/InternshipWebsite/intern/html/search.html",
+		"/Users/Ilona/Desktop/CPSC430/InternshipWebsite/intern/html/newLogin.html",
+		"/Users/Ilona/Desktop/CPSC430/InternshipWebsite/intern-review/src/styles/index.css",
+		"/Users/Ilona/Desktop/CPSC430/InternshipWebsite/intern-review/src/components/Nav.js",
+		"/Users/Ilona/Desktop/CPSC430/InternshipWebsite/intern-review/src/components/App.js",
+		"/Users/Ilona/Desktop/CPSC430/InternshipWebsite/intern-review/src/components/::Search.js",
+		"/Users/Ilona/Desktop/CPSC430/InternshipWebsite/intern-review/package.json",
+		"/Users/Ilona/Desktop/CPSC430/internships.sql",
+		"/Users/Ilona/Desktop/things/CPSC350/webapp/server/food.sql",
+		"/Users/Ilona/Desktop/RuneLite/runelite/runelite-client/src/test/java/net/runelite/client/plugins/slayer/SlayerPluginTest.java",
+		"/Users/Ilona/Desktop/RuneLite/runelite/runelite-script-assembler-plugin/src/main/java/net/runelite/script/RuneLiteInstructions.java",
+		"/Users/Ilona/Desktop/RuneLite/runelite/http-api/src/main/java/net/runelite/http/api/ge/GrandExchangeClient.java",
+		"/Users/Ilona/Desktop/RuneLite/runelite/http-api/src/main/java/net/runelite/http/api/xp/XpData.java",
+		"/Users/Ilona/Documents/GroupMaker.py",
+		"/Users/Ilona/Desktop/RuneLite/runelite/http-api/src/main/java/net/runelite/http/api/xp/XpClient.java",
+		"/Users/Ilona/Documents/test.py",
+		"/Users/Ilona/Desktop/collatz2.cu",
+		"/Users/Ilona/Desktop/things/untitled folder/airdefence.py",
+		"/Users/Ilona/Documents/CPSC425/Assignment3/random.txt",
+		"/Users/Ilona/NetBeansProjects/BlackJack/src/BlackjackDriver.java",
+		"/Users/Ilona/NetBeansProjects/BlackJack/src/Card.java",
+		"/Users/Ilona/Desktop/untitled.py",
+		"/Users/Ilona/Documents/CPSC419/Lab_3.py",
+		"/Users/Ilona/Documents/CPSC419/DecisionTree3.py",
+		"/Users/Ilona/Documents/CPSC419/DecisionTree4.py",
+		"/Users/Ilona/Documents/CPSC419/DecisionTree.py",
+		"/Users/Ilona/Documents/CPSC425/Assignment2/main2.c",
+		"/Users/Ilona/Desktop/Lab_3.py",
+		"/Users/Ilona/Documents/CPSC425/Assignment2/main.c",
+		"/Users/Ilona/Documents/CPSC419/DecisionTree2.py",
+		"/Users/Ilona/Documents/CPSC419/TeamStuff.py",
+		"/Users/Ilona/Documents/CPSC425/Assignment2/eagle2.ppm",
+		"/Users/Ilona/Documents/CPSC425/Assignment1/main.c",
+		"/Users/Ilona/Documents/CPSC419/housing.py",
+		"/Users/Ilona/Documents/CPSC419/correlation.py",
+		"/Users/Ilona/Documents/CPSC419/untitled.py",
+		"/Users/Ilona/Documents/CPSC425/untitled/main.c",
+		"/Users/Ilona/Documents/CPSC405/Homework4/Homework4/enzyme.c",
+		"/Users/Ilona/Documents/CPSC405/Homework3/Basic_Shell.c",
+		"/Users/Ilona/Desktop/task_4.js",
+		"/Users/Ilona/Desktop/task_3.js",
+		"/Users/Ilona/Desktop/task_2.js",
+		"/Users/Ilona/Desktop/task_1.js",
+		"/Users/Ilona/Downloads/dump/geoworld/system.indexes.bson",
+		"/Users/Ilona/Downloads/dump/geoworld/cities.bson",
+		"/Users/Ilona/Downloads/HW_4 2/enzyme.c",
+		"/Users/Ilona/Downloads/webapp/food/client/package.json",
+		"/Users/Ilona/Desktop/webapp/food/package.json",
+		"/Users/Ilona/Desktop/webapp/food/client/package.json",
+		"/Users/Ilona/Desktop/webapp/server/package.json",
+		"/Users/Ilona/Desktop/webapp/package.json",
+		"/Users/Ilona/Desktop/Datafest/DataFest/analyze.py",
+		"/Users/Ilona/WebstormProjects/react-2/package.json",
+		"/Users/Ilona/WebstormProjects/react-2/src/search.js",
+		"/Users/Ilona/Documents/DATA219/Stuff/challenge3/wildfires.py",
+		"/Users/Ilona/Downloads/webapp/food/client/src/Search.js",
+		"/Users/Ilona/Desktop/CPSC350/Web-app/food.js",
+		"/Users/Ilona/Desktop/CPSC350/workshop2/workshop2.js",
+		"/Users/Ilona/Desktop/CPSC350/Web-app/food.sql",
+		"/Users/Ilona/Documents/CPSC405/Homework2/hello.py",
+		"/Users/Ilona/Documents/output.txt",
+		"/Users/Ilona/Downloads/Listo.html",
+		"/Users/Ilona/WebstormProjects/react-rudiment/src/api.js",
+		"/Users/Ilona/WebstormProjects/react-rudiment/src/search.js",
+		"/Users/Ilona/Downloads/performances.json",
+		"/Users/Ilona/react-thing/src/index.js",
+		"/Users/Ilona/react-thing/src/index.css",
+		"/Users/Ilona/react-thing/src/App.test.js",
+		"/Users/Ilona/react-thing/src/Battle.js",
+		"/Users/Ilona/react-thing/src/App.js",
+		"/Users/Ilona/react-thing/src/App.css",
+		"/Users/Ilona/Desktop/react-test/src/index.js",
+		"/Users/Ilona/Desktop/react-test/src/index.css",
+		"/Users/Ilona/Desktop/react-test/src/index.html",
+		"/Users/Ilona/Desktop/test.sql",
+		"/Users/Ilona/Desktop/react-test/src/api.js",
+		"/Users/Ilona/Desktop/react-test/src/App.test.js",
+		"/Users/Ilona/Desktop/react-test/src/Popular.js",
+		"/Users/Ilona/Desktop/react-test/src/App.js",
+		"/Users/Ilona/Desktop/react-test/src/App.css",
+		"/Users/Ilona/Documents/strtok1.c",
+		"/Users/Ilona/Documents/makefile",
+		"/Users/Ilona/Documents/Basic_Shell.c",
+		"/Users/Ilona/Documents/test.txt",
+		"/Users/Ilona/Documents/Parsing.c",
+		"/Users/Ilona/Desktop/shit/package.json",
+		"/Users/Ilona/Desktop/shit/package-lock.json",
+		"/Users/Ilona/Desktop/shit/webpack.config.js",
+		"/Users/Ilona/Desktop/CPSC350/workshop2/package.json",
+		"/Users/Ilona/Desktop/index.js",
+		"/Users/Ilona/Desktop/index.css"
+	],
+	"find":
+	{
+		"height": 24.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": false
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 24.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "login.sublime-project",
+	"replace":
+	{
+		"height": 44.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
