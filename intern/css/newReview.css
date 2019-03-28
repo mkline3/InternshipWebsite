@@ -192,3 +192,8 @@
   #Rate, #Other{
     width:20%;
   }
+  input[type="submit"]{
+    font-size:15px;
+    border-radius:25%;
+    
+  }
