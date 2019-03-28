@@ -11,6 +11,9 @@
 			<script src="https://cdn.jsdelivr.net/npm/ol-geocoder"></script>
 			<!--jquery script-->
 			 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+			 <script type="text/javascript">
+			 	var isLoggedIn = 0;
+			 </script>
 			<title>University of Mary Washington Internship</title>
 		</head>
 	</html>
@@ -24,23 +27,23 @@
   				<a href="newLogin.html" target="popup" onclick="window.open('newLogin.html', 'popup','width=400,height=300');return false;"><img src = "..\img\signIn.png" height = "20" width = "20"><br/>Sign-Up</a>
 			</div>
 		</div>
-		<div id = 'login' class="login-container">
 			<script type="text/javascript">
-				$.get("Homepage.html", function(data) {
-					if(data.username != null) {
-						var User = data.username;
-					}
-				});
-
-				if (1) {
-					document.getElementById("login").innerHTML = '<form action="Homepage.html" onsubmit = "login()"><button type="submit">Login</button><input type="password" placeholder="Password" name="psw"><input type="text" placeholder="Email Address" name="username"></form>';
+				if (isLoggedIn == 0) {
+					document.getElementById("login").innerHTML = '<form action="/login.php" onsubmit = "login()"><button type="submit">Login</button><input type="password" placeholder="Password" name="psw"><input type="text" placeholder="Email Address" name="username"></form>'
 				} else {
-					document.getElementById("login").innerHTML = '<p>'+User+'</p>';
+					document.getElementById("login").innerHTML = '<p>cool</p>'
 				}
 			</script>
+		<div id = 'login' class="login-container">
+    			<form action="/Homepage.php" onsubmit = "login()">
+      				<button type="submit">Login</button>
+      				<input type="password" placeholder="Password" name="psw">
+      				<input type="text" placeholder="Email Address" name="username">
+    			</form>
     			<script>
     				function login(){
     					alert('you have logged in');
+    					isLoggedIn = 1;
     				}
     			</script>
   			</div>
