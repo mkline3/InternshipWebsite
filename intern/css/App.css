@@ -107,26 +107,24 @@ html ,body {
     cursor: pointer;
   }
 
-  .App-header input[type=text] {
+  .App-header input {
     float: right;
     margin: auto;
     margin-left: 1%;
     margin-top: 4%;
-    border: none;
+    border-radius: 10px;
+    background-color:lightgrey;
+    transition-duration:0.4s;
+    color: white;
+    display: inline;
     height: 50%;
     padding-left: 10px;
   }
 
-    .App-header input[type=password] {
-    float: right;
-    margin: auto;
-    margin-left: 1%;
-    margin-top: 4%;
-    border: none;
-    height: 50%;
-    padding-left: 10px;
+  .App-header input {
+    background-color: silver;
+    color:gray;
   }
-
 
   .App-header .login-container button {
     float: right;

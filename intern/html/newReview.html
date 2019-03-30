@@ -3,29 +3,47 @@
 <head>
 		<title>Make Review</title>
 		<link rel="stylesheet" type="text/css" href="../css/newReview.css">
+		<link rel="stylesheet" href="..\css\App.css" type="text/css">
 	</head>
+	
 	<div class = "App-header">
 		<div class = "nav">
 			<a href="Homepage.html"><img src = "..\img\umw.png" id = "logo"></a>
-			<div class = "Secondary-nav">
-				<a href="review.html"><img src = "..\img\star.png" height = "20" width = "40"><br/>Reviews</a>
-  				<a href="newReview.html" id="active"><img src = "..\img\addReview.png" height = "20" width = "20"><br/>Add a Review</a>
-  				<a href="newLogin.html" target="popup" onclick="window.open('newLogin.html', 'popup','width=400,height=300');return false;"><img src = "..\img\signIn.png" height = "20" width = "20"><br/>Sign-Up</a>
+			<div class = "Secondary-nav" id = 'secondary'>
+				<script type="text/javascript">
+				if (sessionStorage.getItem("user") == null) {
+					document.getElementById("secondary").innerHTML = '<a href="newLogin.html" target="popup" onclick="window.open(' + "'newLogin.html', 'popup','width=400,height=300')" + ';return false;"><img src = "../img/signIn.png" height = "20" width = "20"><br/>Sign-Up</a>';
+				} else {
+					document.getElementById("secondary").innerHTML = '<a href="review.html"><img src = "../img/star.png" height = "20" width = "40"><br/>Reviews</a><a href="newReview.html"><img src = "../img/addReview.png" height = "20" width = "20"><br/>Add a Review</a>';
+				}
+			</script>
 			</div>
 		</div>
-		<div class="login-container">
-    			<form action="/login.php" onsubmit = "login()">
-      				<button type="submit">Login</button>
-      				<input type="password" placeholder="Password" name="psw">
-      				<input type="text" placeholder="Email Address" name="username">
-    			</form>
+		<div id = 'login' class="login-container">
+			<script type="text/javascript">
+				if (sessionStorage.getItem("user") == null) {
+					document.getElementById("login").innerHTML = '<form action="Homepage.html" onsubmit = "login()"><button type="submit">Login</button><input type="password" placeholder="Password" id="psw"><input type="text" placeholder="Email Address" id="username"></form>';
+				} else {
+					const user = sessionStorage.getItem("user");
+					document.getElementById("login").innerHTML = '<p>'+ user +' | <a onclick = "logout()">Logout</a></p>';
+				}
+			</script>
     			<script>
     				function login(){
-    					alert('you have logged in')
+    					var user = document.getElementById("username").value;
+    					sessionStorage.setItem("user", user);
+    					alert('You have successfully logged in');
+    				}
+
+    				function logout(){
+    					alert('You have successfully logged out');
+    					sessionStorage.removeItem("user");
+    					location = "../html/Homepage.html";
     				}
     			</script>
   			</div>
 	</div>
+
 	<body>
 		<br><br><br><br>
 		<form id="Review">
