@@ -84,7 +84,24 @@ app.post('/newReview', async (req, res) =>{
     var comments = req.body.textbox;
 
     try {
+        var response = await pool.query('insert into review(company_name,salary, rating, season,duration,address,city,state,) values($1, $2)', [username, id_num]);
 
+company_name text NOT NULL,
+    job_title text NOT NULL,
+    salary text, 
+    start_date date,
+    end_date date,
+    rating int,
+    season text,
+    duration int,
+    address text NOT NULL,
+    city text,
+    state text,
+    country text,
+    longitude decimal,
+    lattitude decimal,
+    is_approved boolean DEFAULT FALSE,
+    Other_data text
 
     } catch(e) {
         console.log('Error running post', e);
