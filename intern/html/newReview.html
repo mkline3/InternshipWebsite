@@ -31,8 +31,13 @@
     			<script>
     				function login(){
     					var user = document.getElementById("username").value;
-    					sessionStorage.setItem("user", user);
-    					alert('You have successfully logged in');
+    					if($("#psw").val() !== "" && $("#username").val() !==""){
+               				 sessionStorage.setItem("user", user);
+                			alert('You have successfully logged in');
+              			}
+              			else{
+                		alert("Cridentials failed try again");
+              			}
     				}
 
     				function logout(){
