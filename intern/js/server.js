@@ -69,45 +69,30 @@ app.get('/review', async (req, res) =>{
 })
 
 app.post('/newReview', async (req, res) =>{
-    var company = req.body.company;
+    var company = req.body.comp;
     var address = req.body.address;
     var city = req.body.city;
     var state = req.body.state;
-    var country = req.body.country;
 
-    var semester = req.body.semester;
-    var weeks = req.body.dur; 
-    var title = req.body.type; 
-    var pay = req.body.pay;
+    var season = req.body.semester;
+    var duration = req.body.dur; 
+    var job_title = req.body.type; 
+    var salary = req.body.pay;
 
     var rating = req.body.review;
-    var comments = req.body.textbox;
-
+    var Other_data = req.body.textbox;
+    //var id_num = 5
     try {
-        //var response = await pool.query('insert into review(company_name, job_title, salary, rating, season, duration, address, city, state, country, Other_data) values($1, $2,$3,$4,$5,$6,$7,$8,$9,$10,$11)', [username, id_num]);
-
-company_name text NOT NULL,
-    job_title text NOT NULL,
-    salary text, 
-    start_date date,
-    end_date date,
-    rating int,
-    season text,
-    duration int,
-    address text NOT NULL,
-    city text,
-    state text,
-    country text,
-    longitude decimal,
-    lattitude decimal,
-    is_approved boolean DEFAULT FALSE,
-    Other_data text
+        var response = await pool.query('insert into reviews(company_name, address, city, state, season, duration, job_title, salary, rating, Other_data) values($1,$2,$3,$4,$5,$6,$7,$8,$9,$10)', 
+            [company, address, city, state, season, duration, job_title, salary, rating, Other_data]);
+        res.json("it worked");
 
     } catch(e) {
         console.log('Error running post', e);
     }
 
 })
+
 app.listen(app.get('port'), () => {
     console.log('Running');
 })
