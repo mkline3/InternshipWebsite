@@ -68,6 +68,26 @@ app.get('/review', async (req, res) =>{
 
 })
 
+app.get('/login', async (req, res) =>{
+    var test_email = req.query.email;
+    var test_password = req.query.password;
+
+    try{
+       login = await pool.query('select user_email from users where user_email = $1 and password = $2',values[test_email, test_password]);
+
+       if(login.rows = 0){
+          res.json('Wrong credentials');
+       } else {
+            res.json('Log in successful');
+        } 
+    }
+    catch(e){
+        console.log('Error running login', e);
+    }
+
+
+})
+
 app.post('/newReview', async (req, res) =>{
     var company = req.body.comp;
     var address = req.body.address;

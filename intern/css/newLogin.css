@@ -49,6 +49,14 @@ h1{
   width:250px;
   font-size:1em;
 }
+.ec{
+  border-radius:4px;
+  background:#ecf0f1;
+  border: #ccc 1px solid;
+  padding: 8px;
+  width:250px;
+  font-size:1em;
+}
 input{
   border-radius:6px;
   background-color:lightgrey;
