@@ -84,7 +84,7 @@ app.post('/newReview', async (req, res) =>{
     var comments = req.body.textbox;
 
     try {
-        var response = await pool.query('insert into review(company_name,salary, rating, season,duration,address,city,state,) values($1, $2)', [username, id_num]);
+        //var response = await pool.query('insert into review(company_name, job_title, salary, rating, season, duration, address, city, state, country, Other_data) values($1, $2,$3,$4,$5,$6,$7,$8,$9,$10,$11)', [username, id_num]);
 
 company_name text NOT NULL,
     job_title text NOT NULL,
