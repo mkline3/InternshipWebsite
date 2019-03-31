@@ -35,7 +35,8 @@ $(document).ready(function(){
 		}
 		else{
 			
-			alert("Your account has been created.");
+			alert("Your account has been created, you can now login");
+			window.close();
 		}
 	});
 });
