@@ -1,3 +1,6 @@
+//Access-Control-Allow-Origin: 'http://localhost:8080'
+//Access-Control-Allow-Origin: 'http://localhost:8000'
+
 const express = require('express');
 var Pool = require('pg').Pool;
 var bodyParser = require('body-parser');
@@ -19,6 +22,9 @@ var pool = new Pool(config);
 app.set('port', (8080));
 app.use(bodyParser.json({type: 'application/json'}));
 app.use(bodyParser.urlencoded({extended: true}));
+
+/*    app.use(allowCrossDomain);
+})*/
 
 app.get('/test', async (req, res) =>{
     //var password = req.query.password;
@@ -68,29 +74,51 @@ app.get('/review', async (req, res) =>{
 
 })
 
+app.get('/login', async (req, res) =>{
+    var test_email = req.query.email;
+    var test_password = req.query.password;
+
+    try{
+       login = await pool.query('select user_email from users where user_email = $1 and password = $2',values[test_email, test_password]);
+
+       if(login.rows = 0){
+          res.json('Wrong credentials');
+       } else {
+            res.json('Log in successful');
+        } 
+    }
+    catch(e){
+        console.log('Error running login', e);
+    }
+
+
+})
+
 app.post('/newReview', async (req, res) =>{
-    var company = req.body.company;
+    var company = req.body.comp;
     var address = req.body.address;
     var city = req.body.city;
     var state = req.body.state;
-    var country = req.body.country;
 
-    var semester = req.body.semester;
-    var weeks = req.body.dur; 
-    var title = req.body.type; 
-    var pay = req.body.pay;
+    var season = req.body.semester;
+    var duration = req.body.dur; 
+    var job_title = req.body.type; 
+    var salary = req.body.pay;
 
     var rating = req.body.review;
-    var comments = req.body.textbox;
-
+    var Other_data = req.body.textbox;
+    //var id_num = 5
     try {
-
+        var response = await pool.query('insert into reviews(company_name, address, city, state, season, duration, job_title, salary, rating, Other_data) values($1,$2,$3,$4,$5,$6,$7,$8,$9,$10)', 
+            [company, address, city, state, season, duration, job_title, salary, rating, Other_data]);
+        res.json("it worked");
 
     } catch(e) {
         console.log('Error running post', e);
     }
 
 })
+
 app.listen(app.get('port'), () => {
     console.log('Running');
 })

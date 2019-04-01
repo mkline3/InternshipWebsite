@@ -27,7 +27,7 @@
     background:lightgrey;
   }
 
-  #Rate, #Other{
+#Other{
     width:20%;
   }
   input[type="submit"]{
