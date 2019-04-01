@@ -34,9 +34,31 @@ $(document).ready(function(){
 			alert("You did not retype the same password.");
 		}
 		else{		
-			alert("Your account has been created, you can now login");
-			window.close();
-		}
+			const nodemailer = require("nodemailer");
+
+			var transporter = nodemailer.createTransport({
+				service: 'gmail',
+				auth: {
+					user: 'InternPageDoNotReply@gmail.com',
+					pass: 'Software430'
+				}
+			});
+
+			var link = window.location.href + "?c=" + btoa($('#email').val() + ' ' + $("#p1").val());
+			const mailOptions = {
+				from: 'InternPageDoNotReply@gmail.com',
+				to: $('#email').val(),
+				subject: 'UMW Internship Confirmation',
+				text: 'Thank you for signing up to the UMW Internship Website. To finish creating your account, please click the link below\n' + link
+			}
+
+			transporter.sendMail(mailOptions, function(error, info){
+				if (error) {
+					alert("fail");
+				} else {
+					alert("success " + info.response);
+				}
+			});		}
 	});
 });
 
