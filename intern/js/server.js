@@ -1,3 +1,6 @@
+//Access-Control-Allow-Origin: 'http://localhost:8080'
+//Access-Control-Allow-Origin: 'http://localhost:8000'
+
 const express = require('express');
 var Pool = require('pg').Pool;
 var bodyParser = require('body-parser');
@@ -19,6 +22,9 @@ var pool = new Pool(config);
 app.set('port', (8080));
 app.use(bodyParser.json({type: 'application/json'}));
 app.use(bodyParser.urlencoded({extended: true}));
+
+/*    app.use(allowCrossDomain);
+})*/
 
 app.get('/test', async (req, res) =>{
     //var password = req.query.password;
