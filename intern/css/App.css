@@ -186,6 +186,18 @@ html ,body {
     color: white;
   }
 
+  #SigninDiv {
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin-top: 8vh;
+    margin-left: 13%;
+    width:300px;
+    height: 250px;
+    z-index: 200;
+    display: none;
+  }
+
 .Review-map-container {
   position: relative;
   padding-top: 10vh;
