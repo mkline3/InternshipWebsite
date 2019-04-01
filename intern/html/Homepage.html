@@ -31,11 +31,11 @@
         						document.body.addEventListener('click', closer, false);
         					});
     					});
-    					function closer(event) {
-    						if(this.id != 'SigninDiv'){
-    							alert(this.id);
+    					function closer(e) {
+    						var id = $(e.target).closest('.signin').attr("id");
+    						if(id != "SigninDiv"){
+    							//alert(event.target.id);
     							document.body.removeEventListener('click', closer, false);
-    							$('#SigninDiv').load(location.href + " #SigninDiv");
   								$('#SigninDiv').hide();
   							}
 						}
@@ -78,7 +78,7 @@
   			</div>
 	</div>
 
-	<div id = 'SigninDiv'>
+	<div id = 'SigninDiv' class = "signin">
 		<body>
 		<form id="emailField" onsubmit="return false">
 			<div class="box">
@@ -86,15 +86,17 @@
 				<input type="text" id = "email" name="email" placeholder="example@mail.umw.edu">
 				<input type="submit" id="confirm" value="confirm">
 				<br>
-				<input type="password" id = "p1" name="p1" placeholder="password">
+				<input type="text" id = "ec" placeholder="enter confirmation code">
 				<br>
-				<input type="password" id = "p2" name="p2" placeholder="retype password">
+				<input type="password" id = "p1" placeholder="password">
+				<br>
+				<input type="password" id = "p2" placeholder="retype password">
 				<br><br>
 				<input type="submit" id="submit" value="submit">				
 			</div>
 		</form>
 		<script src="../js/newLogin.js"></script>
-		</body>
+	</body>
 	</div>
 	<!--<img src = "..\img\banner-copy.png" id = "banner">-->
 
