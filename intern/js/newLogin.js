@@ -44,12 +44,12 @@ $(document).ready(function(){
 				}
 			});
 
-			var link = window.location.href + "?c=" + btoa($('#email').val() + ' ' + $("#p1").val());
+			//var link = window.location.href + "?c=" + btoa($('#email').val() + ' ' + $("#p1").val());
 			const mailOptions = {
 				from: 'InternPageDoNotReply@gmail.com',
 				to: $('#email').val(),
 				subject: 'UMW Internship Confirmation',
-				text: 'Thank you for signing up to the UMW Internship Website. To finish creating your account, please click the link below\n' + link
+				text: 'Thank you for signing up to the UMW Internship Website. To finish creating your account, to verify your account use code:\n AbaC3' 
 			}
 
 			transporter.sendMail(mailOptions, function(error, info){
@@ -58,7 +58,8 @@ $(document).ready(function(){
 				} else {
 					alert("success " + info.response);
 				}
-			});		}
+			});		
+		}
 	});
 });
 
