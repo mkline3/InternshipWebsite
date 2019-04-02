@@ -1,13 +1,16 @@
 $(document).ready(function(){
+	var company;
 	$("#ifOther").hide();
 	$("#rate").hide();
 	$("#company").hide();
 	$("#type").change(function(){
 		if($("#type").val() === "Other"){
 			$("#ifOther").show();
+			company = $("#ifOther").val();
 		}
 		else{
 			$("#ifOther").hide();
+			company = $("#comp").val();
 		}
 
 	});
@@ -29,6 +32,7 @@ $(document).ready(function(){
 	});
 		
 	$("#submit").click(function(){
+		console.log("Click");
 		$.ajax({
 			url: 'http://localhost:8080/newReview',
 			type: "POST",
@@ -40,7 +44,7 @@ $(document).ready(function(){
 				semester:$("#semester").val(),
 				dur: $("#dur").val(),
 				types: $("#type").val(),
-				pay: $("#rate").val(),
+				pay: $("#pay").val(),
 				review: $("#review").val(),
 				textbox: $("#textbox").val()
 
