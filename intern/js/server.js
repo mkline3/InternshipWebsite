@@ -1,14 +1,9 @@
-//Access-Control-Allow-Origin: 'http://localhost:8080'
-//Access-Control-Allow-Origin: 'http://localhost:8000'
-
 const express = require('express');
 var Pool = require('pg').Pool;
 var bodyParser = require('body-parser');
 
 const app = express();
 
-//create role on database
-//has select privleges
 
 
 var config = {
@@ -23,21 +18,12 @@ app.set('port', (8080));
 app.use(bodyParser.json({type: 'application/json'}));
 app.use(bodyParser.urlencoded({extended: true}));
 
-/*    app.use(allowCrossDomain);
-})*/
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
 
-app.get('/test', async (req, res) =>{
-    //var password = req.query.password;
-    //var email = req.query.email;
-    try{
-        var response = await pool.query('select * from reviews');
-        res.json(response.rows);
-    }
-    catch(e){
-            console.log('Error running get',e);
-    }
-
-})
 
 app.get('/review', async (req, res) =>{
     var name = req.query.name;
@@ -45,16 +31,16 @@ app.get('/review', async (req, res) =>{
     var city = req.query.city;
     var pay = req.query.paid;
     var order = req.query.rate;
-    if(!name){
+    if(name = 'All'){
         name = '%';
     } 
-    if(!state){
+    if(state = 'All'){
         state = '%';
     }  
-    if(!city){
+    if(city = 'All'){
         city = '%';
     }  
-    if(!pay){
+    if(pay = 'All'){
         pay = '%';
     } 
     try{ 

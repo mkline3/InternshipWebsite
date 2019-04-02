@@ -3,9 +3,10 @@
 $(document).ready(function(){
 
 	$.ajax({
-		url: 'http://localhost:8080/test',
+		url: 'http://localhost:8080/review',
 		type: "GET",
 		success: function(result){
+
 			console.log(result);
 
 		},
