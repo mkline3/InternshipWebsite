@@ -2,8 +2,10 @@
 <html>
 	<head>
 		<title>Find Reviews</title>
+		<link rel="stylesheet" type="text/css" href="../css/newLogin.css">
 		<link rel="stylesheet" type="text/css" href="../css/App.css">
 		<link rel="stylesheet" type="text/css" href="../css/review.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	</head>
 
 	<div class = "App-header">
@@ -12,9 +14,26 @@
 			<div class = "Secondary-nav" id = 'secondary'>
 				<script type="text/javascript">
 				if (sessionStorage.getItem("user") == null) {
-					document.getElementById("secondary").innerHTML = '<a href="newLogin.html" target="popup" onclick="window.open(' + "'newLogin.html', 'popup','width=400,height=300')" + ';return false;"><img src = "../img/signIn.png" height = "20" width = "20"><br/>Sign-Up</a>';
+					/*document.getElementById("secondary").innerHTML = '<a href="newLogin.html" target="popup" onclick="window.open(' + "'newLogin.html', 'popup','width=400,height=300,toolbar=No,location=No,scrollbars=no,status=No,resizable=no,fullscreen=No')" + '; return false;"><img src = "../img/signIn.png" height = "20" width = "20"><br/>Sign-Up</a>';*/
+					document.getElementById("secondary").innerHTML = '<a id="signinFocus"><img src = "../img/signIn.png" height = "20" width = "20"><br/>Sign-Up</a><a href="review.html"><img src = "../img/star.png" height = "20" width = "40"><br/>Reviews</a>';
+
+					$(document).ready(function(){
+    					$("#signinFocus").click(function(){
+        					$('#SigninDiv').show(function(){
+        						document.body.addEventListener('click', closer, false);
+        					});
+    					});
+    					function closer(e) {
+    						var id = $(e.target).closest('.signin').attr("id");
+    						if(id != "SigninDiv"){
+    							//alert(event.target.id);
+    							document.body.removeEventListener('click', closer, false);
+  								$('#SigninDiv').hide();
+  							}
+						}
+					});
 				} else {
-					document.getElementById("secondary").innerHTML = '<a href="review.html"><img src = "../img/star.png" height = "20" width = "40"><br/>Reviews</a><a href="newReview.html"><img src = "../img/addReview.png" height = "20" width = "20"><br/>Add a Review</a>';
+					document.getElementById("secondary").innerHTML = '<a href="newReview.html"><img src = "../img/addReview.png" height = "20" width = "20"><br/>Add a Review</a><a href="review.html"><img src = "../img/star.png" height = "20" width = "40"><br/>Reviews</a>';
 				}
 			</script>
 			</div>
@@ -22,7 +41,7 @@
 		<div id = 'login' class="login-container">
 			<script type="text/javascript">
 				if (sessionStorage.getItem("user") == null) {
-					document.getElementById("login").innerHTML = '<form action="Homepage.html" onsubmit = "login()"><button type="submit">Login</button><input type="password" placeholder="Password" id="psw"><input type="text" placeholder="Email Address" id="username"></form>';
+					document.getElementById("login").innerHTML = '<form onsubmit = "login()"><button type="submit">Login</button><input type="password" placeholder="Password" id="psw"><input type="text" placeholder="Email Address" id="username"></form>';
 				} else {
 					const user = sessionStorage.getItem("user");
 					document.getElementById("login").innerHTML = '<p>'+ user +' | <a onclick = "logout()">Logout</a></p>';
@@ -31,17 +50,45 @@
     			<script>
     				function login(){
     					var user = document.getElementById("username").value;
-    					sessionStorage.setItem("user", user);
-    					alert('You have successfully logged in');
+              //var pass = document.getElementById("password").value;
+              if($("#psw").val() !== "" && $("#username").val() !==""){
+                sessionStorage.setItem("user", user);
+                alert('You have successfully logged in');
+                location = location;
+              }
+              else{
+                alert("Cridentials failed try again");
+              }
     				}
 
     				function logout(){
     					alert('You have successfully logged out');
     					sessionStorage.removeItem("user");
-    					location = "../html/Homepage.html";
+    					document.location.replace("Homepage.html");
     				}
     			</script>
   			</div>
+		</div>
+
+	<div id = 'SigninDiv' class = "signin">
+		<body>
+		<form id="emailField" onsubmit="return false">
+			<div class="box">
+				<h1>Create Login</h1>
+				<input type="text" id = "email" name="email" placeholder="example@mail.umw.edu">
+				<input type="submit" id="confirm" value="confirm">
+				<br>
+				<input type="text" id = "ec" placeholder="enter confirmation code">
+				<br>
+				<input type="password" id = "p1" placeholder="password">
+				<br>
+				<input type="password" id = "p2" placeholder="retype password">
+				<br><br>
+				<input type="submit" id="submit" value="submit">				
+			</div>
+		</form>
+		<script src="../js/newLogin.js"></script>
+	</body>
 	</div>
 
 	<body>

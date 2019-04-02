@@ -1,9 +1,9 @@
-  body{
+ .signin body{
     background-color: #294664;
     text-align:center;
   }
 
-  form{
+  #emailField form{
 
     width:75%;
     font-size:15px;
@@ -21,6 +21,7 @@
     width:40%;
     font-size:14px;
   }
+
   select{
     width: 20.5%;
     font-size:14px;
