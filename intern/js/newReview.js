@@ -28,5 +28,32 @@ $(document).ready(function(){
 		}
 	});
 		
+	$("#submit").click(function(){
+		$.ajax({
+			url: 'http://localhost:8080/newReview',
+			type: "POST",
+			data:{
+				comp: $("#comp").val(),
+				address: $("#address").val(),
+				city: $("#city").val(),
+				state: $("#state").val(),
+				semester:$("#semester").val(),
+				dur: $("#dur").val(),
+				types: $("#type").val(),
+				pay: $("#rate").val(),
+				review: $("#review").val(),
+				textbox: $("#textbox").val()
+
+			},
+			success: function(result){
+
+				console.log(result);
+
+			},
+			error: function(error){
+				console.log("Error:"  + error);
+			}
+		});
+	});
 
 });
