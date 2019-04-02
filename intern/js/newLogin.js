@@ -18,22 +18,6 @@ $(document).ready(function(){
 			$("#p2").show();
 			$("#submit").show();
 			$("#confirm").hide();
-			//t = 1;
-		}
-		else{
-			alert("The entered email: "+ $("#email").val() + " is not a umw email");
-		}	
-
-	});
-	$("#submit").click(function(){
-		if($("#ec").val() !== "AbaC3"){
-			alert("You did not type verification code correctly.");
-		}
-		else if($("#p1").val() !== $("#p2").val() ){
-			//console.log("inside");
-			alert("You did not retype the same password.");
-		}
-		else{		
 			const nodemailer = require("nodemailer");
 
 			var transporter = nodemailer.createTransport({
@@ -59,6 +43,24 @@ $(document).ready(function(){
 					alert("success " + info.response);
 				}
 			});		
+			//t = 1;
+		}
+		else{
+			alert("The entered email: "+ $("#email").val() + " is not a umw email");
+		}	
+
+	});
+	$("#submit").click(function(){
+		if($("#ec").val() !== "AbaC3"){
+			alert("You did not type verification code correctly.");
+		}
+		else if($("#p1").val() !== $("#p2").val() ){
+			//console.log("inside");
+			alert("You did not retype the same password.");
+		}
+		else{		
+			alert("Your account has been created");
+			location.replace("Homepage.html");
 		}
 	});
 });
