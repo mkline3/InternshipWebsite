@@ -2,11 +2,11 @@ CREATE DATABASE internships;
 \c internships
 
 
-CREATE TABLE Reviews (
+CREATE TABLE reviews (
     Review_ID serial PRIMARY KEY,
     company_name text NOT NULL,
     job_title text NOT NULL,
-    salary int, 
+    salary text, 
     start_date date,
     end_date date,
     rating int,
@@ -15,16 +15,27 @@ CREATE TABLE Reviews (
     address text NOT NULL,
     city text,
     state text,
-    country text,
+    longitude decimal,
+    lattitude decimal,
+    is_approved boolean DEFAULT FALSE,
     Other_data text
 );
 
-CREATE TABLE Users (
+CREATE TABLE users (
 	user_name text PRIMARY KEY,
 	user_email text NOT NULL,
-	password text NOT NULL
+	password text NOT NULL,
+    is_admin boolean
 );
 
-insert into Reviews values 
-    (1, 'Geico', 'Software Engineer intern', '50000', '2018-06-01', '2018-08-01', 5, 'summer', 12, '123 Real street', 'Fredericksburg', 'Virginia','USA','N/A'),
-    (2, 'Amazon', 'Data science intern', '55000', '2017-06-01', '2018-08-05', 1, 'summer', 12, '456 street', 'Herndon', 'Virginia', 'USA', 'N/A');
+insert into reviews(company_name, job_title, salary, start_date, end_date, rating, season, duration, address, city, state, longitude, lattitude,is_approved, Other_data) values 
+    ('Geico', 'Software Engineer intern', 'paid', '2018-06-01', '2018-08-01', 5, 'summer', 12, '123 Real street', 'Fredericksburg', 'Virginia', 13.47530, 28.6869538, TRUE, 'N/A'),
+    ('Amazon', 'Data science intern', 'paid', '2017-06-01', '2018-08-05', 1, 'summer', 12, '456 street', 'Herndon', 'Virginia', 67.1877382, 120.73394957, TRUE, 'N/A'),
+    ('aylmao', 'intern', 'paid', '2019-06-01', '2019-08-05', 4, 'summer', 12, '456 street', 'Baltimore', 'Maryland', 1.123232, 23.1232453, TRUE,'N/A');
+
+insert into users values 
+    ('bzamojd2', 'bzamojd2@mail.umw.edu', 'password', FALSE),
+    ('bob', 'bob123@mail.umw.edu', 'password2',FALSE),
+    ('joe', 'joe1@mail.umw.edu', 'meme', TRUE);
+
+
