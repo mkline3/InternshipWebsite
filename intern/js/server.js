@@ -114,6 +114,32 @@ app.post('/newReview', async (req, res) =>{
     }
 
 })
+app.get('/comp', async (req, res) =>{
+
+    try{
+       comp = await pool.query("select DISTINCT company_name from reviews");
+       res.json(comp.rows);
+    }
+    catch(e){
+        console.log('Error running login', e);
+    }
+})
+app.get('/state', async (req, res) =>{
+    var name = req.body.name;
+    console.log(name);
+    try{
+        if(name !=="All"){
+            comp = await pool.query("select DISTINCt state from reviews where company_name like $1",[name]);
+        }
+        else{
+            comp = await pool.query("select DISTINCt state from reviews");
+        }
+      res.json(comp.rows);
+    }
+    catch(e){
+        console.log('Error running login', e);
+    }
+})
 
 app.listen(app.get('port'), () => {
     console.log('Running');

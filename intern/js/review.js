@@ -45,7 +45,6 @@ $(document).ready(function(){
 
 		},
 		success: function(result){
-
 			console.log(result);
 			for(var i = 0; i < result.length; i++) {
     			//console.log(result[i].company_name);
@@ -59,7 +58,52 @@ $(document).ready(function(){
 		}
 	});
 
+	$.ajax({
+		url: 'http://localhost:8080/comp',
+		type: "GET",
+		success: function(result){
+			//console.log(result);
+			for(var i = 0; i < result.length; i++) {
+    			//console.log(result[i].company_name);
+    			$('#name').append($('<option>', { 
+			        value: result[i].company_name,
+			        text : result[i].company_name
+			    }));
+    			
 
+			}
+
+		},
+		error: function(error){
+			console.log("Error:"  + error);
+		}
+	});
+console.log($("#name").val());
+	$.ajax({
+		url: 'http://localhost:8080/state',
+		type: "GET",
+		data:{
+			name:$("#name").val(),
+
+		},
+		success: function(result){
+
+			console.log(result);
+			for(var i = 0; i < result.length; i++) {
+    			console.log(result);
+    			$('#state').append($('<option>', { 
+			        value: result[i].state,
+			        text : result[i].state
+			    }));
+    			
+
+			}
+
+		},
+		error: function(error){
+			console.log("Error:"  + error);
+		}
+	});
 
 
 });
