@@ -15,7 +15,6 @@
 			<title>University of Mary Washington Internship</title>
 		</head>
 	</html>
-
 	<div class = "App-header">
 		<div class = "nav">
 			<a href="Homepage.html"><img src = "..\img\umw.png" id = "logo"></a>
@@ -55,18 +54,45 @@
 					document.getElementById("login").innerHTML = '<p>'+ user +' | <a onclick = "logout()">Logout</a></p>';
 				}
 			</script>
-    			<script>
+    			<script src="../login.js">
+          /*  var test;
+          $(document).ready(function(){
+            $.ajax({
+                url: 'http://localhost:8080/log',
+                type: "GET",
+                /*data:{
+                  email: $("#username").val(),
+                  password: $("#psw").val(),
+
+                },
+                success: function(result){
+                  console.log(result);
+                  test = result;
+                  //console.log(result);
+                },
+                error: function(error){
+                  console.log("Error:"  + error);
+                }
+              });
+          });
+
     				function login(){
     					var user = document.getElementById("username").value;
-              //var pass = document.getElementById("password").value;
-              if($("#psw").val() !== "" && $("#username").val() !==""){
-                sessionStorage.setItem("user", user);
-                alert('You have successfully logged in');
-                location = location;
-              }
-              else{
-                alert("Cridentials failed try again");
-              }
+              var n = 0;
+              for(var i = 0; i < test.length; i++) {
+                    if(result[i].username === $("#username").val() && result[i].password === $("#psw").val()){
+                      n = 1;
+                    }
+                  }
+
+                  if(n === 1){
+                    sessionStorage.setItem("user", user);
+                    alert('You have successfully logged in');
+                    location = location;
+                  }
+                  else{
+                    alert("Cridentials failed try again");
+                  }
     					
     				}
 
@@ -74,7 +100,7 @@
     					alert('You have successfully logged out');
     					sessionStorage.removeItem("user");
     					document.location.replace("Homepage.html");
-    				}
+    				}*/
     			</script>
   			</div>
 	</div>
@@ -169,5 +195,6 @@
       			});	
       		});
     </script>
+
     <!--OpenLayers Marker Layer-->
 	</div>
