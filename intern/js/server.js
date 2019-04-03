@@ -29,26 +29,36 @@ app.get('/review', async (req, res) =>{
     var name = req.query.name;
     var state = req.query.state;
     var city = req.query.city;
-    var pay = req.query.paid;
-    var order = req.query.rate;
-    if(name = 'All'){
+    var paid = req.query.paid;
+    var rate = req.query.rate;
+    if( rate  === "Low to High"){
+        rate = "low";
+    }
+    if(rate === "High to Low"){
+        rate = "high";
+    }
+    if(name === 'All'){
         name = '%';
     } 
-    if(state = 'All'){
+    if(state === 'All'){
         state = '%';
     }  
-    if(city = 'All'){
+    if(city === 'All'){
         city = '%';
     }  
-    if(pay = 'All'){
-        pay = '%';
+    if(paid === 'Any'){
+        paid = '%';
     } 
+    //console.log(rate);
     try{ 
-        if(order = "high"){
-            var response = await pool.query('select * from reviews where company_name LIKE $1 and state LIKE $2 and city LIKE $3 and salary LIKE $4 ORDER BY rating DESC',[name,state,city,pay]);
+        if(rate === "high"){
+            var response = await pool.query('select * from reviews where company_name LIKE $1 and state LIKE $2 and city LIKE $3 and salary LIKE $4 ORDER BY rating DESC',[name,state,city,paid]);
             //var response = await pool.query('select * from reviews where company_name = $1', [name]);
-        } else {
-            var response = await pool.query('select * from reviews where company_name LIKE $1 and state LIKE $2 and city LIKE $3 and pay LIKE $4 ORDER BY rating ASC',[name,state,city,pay]);
+        } else if(rate === "low"){
+            var response = await pool.query('select * from reviews where company_name LIKE $1 and state LIKE $2 and city LIKE $3 and salary LIKE $4 ORDER BY rating ASC',[name,state,city,paid]);
+        }
+        else{
+            var response = await pool.query('select * from reviews where company_name LIKE $1 and state LIKE $2 and city LIKE $3 and salary LIKE $4',[name,state,city,paid]);
         }
 
         res.json(response.rows);
