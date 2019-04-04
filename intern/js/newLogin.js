@@ -50,7 +50,7 @@ $(document).ready(function(){
 		}	
 
 	});
-	$("#submit").click(function(){
+	$("#sub").click(function(){
 
 
 
@@ -65,26 +65,25 @@ $(document).ready(function(){
 		else{		
 			var name = $("#email").val().substr(0, $("#email").val().indexOf('@'));
 			$.ajax({
-			url: 'http://localhost:8080/newReview',
+			url: 'http://localhost:8080/newLog',
 			type: "POST",
 			data:{
 				username: name,
 				email: $("#email").val(),
-				pass: $("#p1".val(),
+				pass: $("#p1").val(),
 
 			},
 			success: function(result){
 
 				console.log(result);
-				alert("Your account has been created");
 
 			},
 			error: function(error){
 				console.log("Error:"  + error);
 			}
+
 		});
-
-
+			alert("Your account has been created");
 
 			location.replace("Homepage.html");
 		}

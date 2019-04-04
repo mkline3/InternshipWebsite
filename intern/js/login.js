@@ -1,14 +1,5 @@
 function login(user, password){
 
-    /*if(password !== "" && user !==""){
-      sessionStorage.setItem("user", user);
-      alert('You have successfully logged in');
-      location = location;
-    }
-    else{
-      alert("Credentials failed try again");
-    }
-*/
    $.ajax({
       url: 'http://localhost:8080/login',
       type: "GET",
