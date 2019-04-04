@@ -90,6 +90,10 @@ app.get('/login', async (req, res) =>{
 
 })
 
+app.get('/map', async (req, res) => {
+    
+});
+
 app.post('/newReview', async (req, res) =>{
     var company = req.body.comp;
     var address = req.body.address;
@@ -187,6 +191,34 @@ app.get('/city', async (req, res) =>{
         console.log('Error running login', e);
     }
 })
+
+app.delete('/delete-user', async (req, res) => {
+    var user_name = req.body.user;
+
+    var x = await pool.query('Select user_name from users where user_name = $1', [user_name]);
+
+    if(x.rows == 0){
+        res.json("User does not exist");
+    } else {
+        var y = await pool.query('delete from users where user_name = $1', [user_name]);
+        try {
+            res.json("deleted user");
+        } catch(e) {
+            console.log('Error running delete' + e);
+        }
+    }
+})
+
+app.delete('/delete-review', async (req, res) => {
+
+
+})
+
+app.post('/approve-review', async (req, res) => {
+
+
+})
+
 
 app.listen(app.get('port'), () => {
     console.log('Running');

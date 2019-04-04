@@ -6,15 +6,18 @@
 			<link rel="stylesheet" type="text/css" href="../css/newLogin.css">
 			<!--OpenLayers StyleSheet-->
 			<link rel="stylesheet" href="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/css/ol.css" type="text/css">
-    		<script src="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/build/ol.js"></script>
-    		<!--jonatawalker ol-geocoder StyleSheet-->
-    		<link href="https://cdn.jsdelivr.net/npm/ol-geocoder@latest/dist/ol-geocoder.min.css" rel="stylesheet">
+    	<script src="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/build/ol.js"></script>
+    	<!--jonatawalker ol-geocoder StyleSheet-->
+    	<link href="https://cdn.jsdelivr.net/npm/ol-geocoder@latest/dist/ol-geocoder.min.css" rel="stylesheet">
 			<script src="https://cdn.jsdelivr.net/npm/ol-geocoder"></script>
 			<!--jquery script-->
-			 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+      <!--login script-->
+      <script type="text/javascript" src="..\js\login.js"></script>
 			<title>University of Mary Washington Internship</title>
 		</head>
 	</html>
+  
 	<div class = "App-header">
 		<div class = "nav">
 			<a href="Homepage.html"><img src = "..\img\umw.png" id = "logo"></a>
@@ -48,7 +51,7 @@
 		<div id = 'login' class="login-container">
 			<script type="text/javascript">
 				if (sessionStorage.getItem("user") == null) {
-					document.getElementById("login").innerHTML = '<form onsubmit = "login()"><button type="submit">Login</button><input type="password" placeholder="Password" id="psw"><input type="text" placeholder="Email Address" id="username"></form>';
+					document.getElementById("login").innerHTML = '<form onsubmit = "loginF()"><input type="text" placeholder="Email Address" id="username"><input type="password" placeholder="Password" id="psw"><button type="submit">Login</button></form>';
 				} else {
 					const user = sessionStorage.getItem("user");
 					document.getElementById("login").innerHTML = '<p>'+ user +' | <a onclick = "logout()">Logout</a></p>';
