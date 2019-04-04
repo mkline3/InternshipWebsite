@@ -102,11 +102,13 @@ app.post('/newReview', async (req, res) =>{
 
     var season = req.body.semester;
     var duration = req.body.dur; 
-    var job_title = req.body.type; 
+    var job_title = req.body.types; 
     var salary = req.body.pay;
-
+    //console.log(duration);
+    
     var rating = req.body.review;
     var Other_data = req.body.textbox;
+    //console.log(rating);
     //var id_num = 5
     try {
         var response = await pool.query('insert into reviews(company_name, address, city, state, season, duration, job_title, salary, rating, Other_data) values($1,$2,$3,$4,$5,$6,$7,$8,$9,$10)', 
@@ -117,6 +119,62 @@ app.post('/newReview', async (req, res) =>{
         console.log('Error running post', e);
     }
 
+})
+app.get('/comp', async (req, res) =>{
+
+    try{
+       comp = await pool.query("select DISTINCT company_name from reviews");
+       res.json(comp.rows);
+    }
+    catch(e){
+        console.log('Error running login', e);
+    }
+})
+app.get('/title', async (req, res) =>{
+
+    try{
+       comp = await pool.query("select DISTINCT job_title from reviews");
+       res.json(comp.rows);
+    }
+    catch(e){
+        console.log('Error running login', e);
+    }
+})
+app.get('/state', async (req, res) =>{
+    var name = req.query.name;
+    //console.log(name);
+    try{
+        if(name !=="All"){
+            comp = await pool.query("select DISTINCt state from reviews where company_name like $1",[name]);
+        }
+        else{
+            comp = await pool.query("select DISTINCt state from reviews");
+        }
+      res.json(comp.rows);
+    }
+    catch(e){
+        console.log('Error running login', e);
+    }
+})
+app.get('/city', async (req, res) =>{
+    var name = req.query.name;
+    var state = req.query.state
+    //console.log(name);
+    if(state === 'All'){
+        state = '%';
+    } 
+    if(name === "All"){
+        name = "%";
+    }
+    try{
+        
+        comp = await pool.query("select DISTINCt city from reviews where company_name like $1 and state like $2",[name,state]);
+        
+      res.json(comp.rows);
+    }
+    catch(e){
+        console.log('Error running login', e);
+    }
 })
 
 app.listen(app.get('port'), () => {
