@@ -98,7 +98,7 @@ app.post('/newReview', async (req, res) =>{
 
     var season = req.body.semester;
     var duration = req.body.dur; 
-    var job_title = req.body.type; 
+    var job_title = req.body.types; 
     var salary = req.body.pay;
 
     var rating = req.body.review;
