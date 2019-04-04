@@ -30,22 +30,78 @@ $(document).ready(function(){
 			$("#company").hide();
 		}
 	});
+	$.ajax({
+		url: 'http://localhost:8080/comp',
+		type: "GET",
+		success: function(result){
+			//console.log(result);
+			for(var i = 0; i < result.length; i++) {
+    			//console.log(result[i].company_name);
+    			$('#Com').append($('<option>', { 
+			        value: result[i].company_name,
+			        text : result[i].company_name
+			    }));
+    			
+
+			}
+
+		},
+		error: function(error){
+			console.log("Error:"  + error);
+		}
+	});
+	$.ajax({
+		url: 'http://localhost:8080/title',
+		type: "GET",
+		success: function(result){
+			console.log(result);
+			for(var i = 0; i < result.length; i++) {
+    			//console.log(result[i].company_name);
+    			$('#type').append($('<option>', { 
+			        value: result[i].job_title,
+			        text : result[i].job_title
+			    }));
+    			
+
+			}
+
+		},
+		error: function(error){
+			console.log("Error:"  + error);
+		}
+	});
 		
-	$("#submit").click(function(){
+	$("#Review").submit(function(){
 		console.log("Click");
+		var ot;
+		var tit
+		if($("#Com").val() === "Other"){
+			ot = $("#comp").val();
+		}
+		else{
+			ot = $("#Com").val();
+		}
+		if($("#type").val() === "Other"){
+			tit = $("#ifOther").val()
+		}
+		else{
+			tit = $("#type").val();
+		}
+		var d = parseInt($("#dur").val());
+		var r =parseInt($("#review").val());
 		$.ajax({
 			url: 'http://localhost:8080/newReview',
 			type: "POST",
 			data:{
-				comp: $("#comp").val(),
+				comp: ot,
 				address: $("#address").val(),
 				city: $("#city").val(),
 				state: $("#state").val(),
 				semester:$("#semester").val(),
-				dur: $("#dur").val(),
-				types: $("#type").val(),
+				dur: d,
+				types: tit,
 				pay: $("#pay").val(),
-				review: $("#review").val(),
+				review: r,
 				textbox: $("#textbox").val()
 
 			},

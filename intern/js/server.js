@@ -124,6 +124,16 @@ app.get('/comp', async (req, res) =>{
         console.log('Error running login', e);
     }
 })
+app.get('/title', async (req, res) =>{
+
+    try{
+       comp = await pool.query("select DISTINCT job_title from reviews");
+       res.json(comp.rows);
+    }
+    catch(e){
+        console.log('Error running login', e);
+    }
+})
 app.get('/state', async (req, res) =>{
     var name = req.query.name;
     //console.log(name);
