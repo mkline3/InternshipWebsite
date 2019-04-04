@@ -88,7 +88,8 @@ $(document).ready(function(){
 			tit = $("#type").val();
 		}
 		var d = parseInt($("#dur").val());
-		var r =//parseInt($("#review").val());
+		//console.log($("#rev").val());
+		var r =parseInt($("#rev").val());
 		$.ajax({
 			url: 'http://localhost:8080/newReview',
 			type: "POST",
