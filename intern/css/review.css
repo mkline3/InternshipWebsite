@@ -1,3 +1,9 @@
+html ,body {
+  margin: 0;
+  padding: 0;
+  background-color: #294664;
+}
+
 #active{
   	background-color:#798086;
   }
@@ -16,7 +22,7 @@
 	border-left-color: #162636;
 	border-style:inset;
 	box-shadow: inset 0px 0px 20px #162636;
-	overflow: scroll;
+	overflow: hidden;
 }
 
 #filter {
@@ -40,10 +46,10 @@
 	display: block;
 	margin: 0 auto;
 	margin-bottom: 10px;
-	background: #a6a6a6;
+	background: silver;
 	border-radius: 5px;
-	box-shadow: inset 0px 4px 4px #8c8c8c;
-	color: white;
+	box-shadow: 0px 1px 1px #8c8c8c;
+	color: grey;
 }
 
 #submit {
@@ -62,8 +68,3 @@
   	width: 65vw;
   	font-size: calc(10px + 1vmin);
 }
-
-body{
-	background-color:#294664;
-}
-

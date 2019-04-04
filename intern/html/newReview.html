@@ -39,7 +39,7 @@
 		<div id = 'login' class="login-container">
 			<script type="text/javascript">
 				if (sessionStorage.getItem("user") == null) {
-					document.getElementById("login").innerHTML = '<form onsubmit = "login()"><button type="submit">Login</button><input type="password" placeholder="Password" id="psw"><input type="text" placeholder="Email Address" id="username"></form>';
+					document.getElementById("login").innerHTML = '<form onsubmit = "login()"><input type="text" placeholder="Email Address" id="username"><input type="password" placeholder="Password" id="psw"><button type="submit">Login</button></form>';
 				} else {
 					const user = sessionStorage.getItem("user");
 					document.getElementById("login").innerHTML = '<p>'+ user +' | <a onclick = "logout()">Logout</a></p>';
@@ -55,7 +55,7 @@
                 location = location;
               }
               else{
-                alert("Cridentials failed try again");
+                alert("Credentials failed try again");
               }
     					
     				}
@@ -91,13 +91,13 @@
 	</div>
 
 	<body>
-		<br><br><br><br>
+		<div id="reviewDiv">
 		<form id="Review" onsubmit="return false">
 			<div id="review">
 				
 				<div id="Company">
 					<h2> Company</h2>
-					<select id="Com">
+					<select id="Com" requeired>
 						<option id='' disabled selected>Choose Company</option>
 						<option id="Other">Other</option>
 					</select>
@@ -105,11 +105,11 @@
 						<input type="text" id = "comp" name="company" placeholder="Company Name">
 					</div>
 					<div>
-						<input type="text" id = "address" placeholder="Company Address">
+						<input type="text" id = "address" placeholder="Company Address" required>
 					</div>
-						<input type="text" id = "city" placeholder="City">
+						<input type="text" id = "city" placeholder="City" required>
 					<div>
-						<select id="state">
+						<select id="state"required>
 							<option id="" selected disabled>State</option>
 							<option id="AL">Alabama</option>
 							<option id="AK">Alaska</option>
@@ -163,13 +163,12 @@
 							<option id="WI">Wisconsin</option>
 							<option id="WY">Wyoming</option>
 						</select>
-
 					</div>
-				</div>
+
 				<div id="details">
 					<h3>Internship Details</h3>
 					<div>
-						<select id="semester">
+						<select id="semester" required>
 							<option id="" disabled selected>Pick Internship Season</option>
 							<option id="summer">Summer</option>
 							<option id="fall">Fall</option>
@@ -177,8 +176,10 @@
 							<option id="spring">Spring</option>
 						</select>
 					</div>
+				</div>
+
 					<div>
-						<select id="dur">
+						<select id="dur" required>
 							<option id="" disabled selected>How many weeks?</option>
 							<option id="1">1</option>
 							<option id="2">2</option>
@@ -194,15 +195,18 @@
 							<option id="12">12</option>
 						</select>
 					</div>
+
 					<div>
-						<select id="type">
+						<select id="type" required>
 							<option id="" disabled selected>Pick Internship Title</option>
 							<option id="other">Other</option>
 						</select>
 					</div>
+
 					<div id="ifOther">
-						<input type="text" id="isOther" placeholder='What was your job title'>
+						<input type="text" id="isOther" placeholder='What was your job title' required>
 					</div>
+
 					<div>
 						<select id="pay">
 							<option id="" disabled selected>Pick Pay Type</option>
@@ -210,6 +214,7 @@
 							<option id="paid">paid</option>
 						</select>
 					</div>
+
 					<div id="rate">
 						<select id="Rate">
 							<option id="" disabled selected>Pick Hourly Rate</option>
@@ -219,12 +224,11 @@
 							<option id="pay4">$20-$25</option>
 							<option id="pay5">$25<</option>
 						</select>
-						</select>
 					</div>
-				</div>
+
 				<div id="extras">
 					<h3>Rating</h3>
-					<select id="rev">
+					<select id="rev" required>
 						<option id='' disabled selected>Rate with Stars</option>
 						<option id="1">1</option>
 						<option id="2">2</option>
@@ -232,15 +236,15 @@
 						<option id="4">4</option>
 						<option id="5">5</option>
 					</select>
-					<br>
 					<h3>Comments</h3>
-					<textarea rows="10" cols="100" id="textbox" form="usrform" placeholder="Enter brief review here...."></textarea>
+					<textarea rows="10" cols="100" id="textbox" form="usrform" placeholder="Enter brief review here...." required></textarea>
 				</div>
+
 				<input type="submit" id="submit" value="submit">
-				<br><br>
-			</dvi>
+			</div>
 
 		</form>
+		</div>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script src="../js/newReview.js"> </script>
 	</body>
