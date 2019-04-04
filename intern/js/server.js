@@ -116,6 +116,21 @@ app.post('/newReview', async (req, res) =>{
     }
 
 })
+
+app.post("/newLog", async(req,res)=>{
+    var username = req.body.username;
+    var email = req.body.email;
+    var password = req.body.pass;
+    try {
+        var response = await pool.query('insert into users(user_name, user_email, password) values($1,$2,$3)', 
+            [username, email, password]);
+        res.json("it worked");
+
+    } catch(e) {
+        console.log('Error running post', e);
+    }
+})
+
 app.get('/comp', async (req, res) =>{
 
     try{

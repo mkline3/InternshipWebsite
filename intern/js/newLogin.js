@@ -51,6 +51,10 @@ $(document).ready(function(){
 
 	});
 	$("#submit").click(function(){
+
+
+
+
 		if($("#ec").val() !== "AbaC3"){
 			alert("You did not type verification code correctly.");
 		}
@@ -59,7 +63,29 @@ $(document).ready(function(){
 			alert("You did not retype the same password.");
 		}
 		else{		
-			alert("Your account has been created");
+			var name = $("#email").val().substr(0, $("#email").val().indexOf('@'));
+			$.ajax({
+			url: 'http://localhost:8080/newReview',
+			type: "POST",
+			data:{
+				username: name,
+				email: $("#email").val(),
+				pass: $("#p1".val(),
+
+			},
+			success: function(result){
+
+				console.log(result);
+				alert("Your account has been created");
+
+			},
+			error: function(error){
+				console.log("Error:"  + error);
+			}
+		});
+
+
+
 			location.replace("Homepage.html");
 		}
 	});

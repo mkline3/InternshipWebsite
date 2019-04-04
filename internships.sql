@@ -25,7 +25,7 @@ CREATE TABLE users (
 	user_name text PRIMARY KEY,
 	user_email text NOT NULL,
 	password text NOT NULL,
-    is_admin boolean
+    is_admin boolean DEFAULT FALSE
 );
 
 insert into reviews(company_name, job_title, salary, start_date, end_date, rating, season, duration, address, city, state, longitude, lattitude,is_approved, Other_data) values 
