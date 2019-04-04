@@ -126,7 +126,7 @@ app.get('/comp', async (req, res) =>{
 })
 app.get('/state', async (req, res) =>{
     var name = req.query.name;
-    console.log(name);
+    //console.log(name);
     try{
         if(name !=="All"){
             comp = await pool.query("select DISTINCt state from reviews where company_name like $1",[name]);
@@ -134,6 +134,26 @@ app.get('/state', async (req, res) =>{
         else{
             comp = await pool.query("select DISTINCt state from reviews");
         }
+      res.json(comp.rows);
+    }
+    catch(e){
+        console.log('Error running login', e);
+    }
+})
+app.get('/city', async (req, res) =>{
+    var name = req.query.name;
+    var state = req.query.state
+    //console.log(name);
+    if(state === 'All'){
+        state = '%';
+    } 
+    if(name === "All"){
+        name = "%";
+    }
+    try{
+        
+        comp = await pool.query("select DISTINCt city from reviews where company_name like $1 and state like $2",[name,state]);
+        
       res.json(comp.rows);
     }
     catch(e){
