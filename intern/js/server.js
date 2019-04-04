@@ -125,7 +125,7 @@ app.get('/comp', async (req, res) =>{
     }
 })
 app.get('/state', async (req, res) =>{
-    var name = req.body.name;
+    var name = req.query.name;
     console.log(name);
     try{
         if(name !=="All"){
