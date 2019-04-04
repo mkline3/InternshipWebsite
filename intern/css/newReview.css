@@ -4,8 +4,6 @@
   }
 
   #emailField form{
-
-    width:75%;
     font-size:15px;
     border-color:gray;
     border-radius: 15px 15px 15px 15px;
@@ -17,22 +15,34 @@
     display:inline-block;
   }
 
+  #reviewDiv {
+    font-family: Arial, Helvetica, sans-serif;
+    position: relative;
+    padding-bottom: 5vh;
+    width: 65vw;
+    height: 72vh;
+    border-color:gray;
+    border-radius: 15px;
+    border-style:outset;
+    margin: auto;
+    margin-top: 12vh;
+    background: silver;
+    text-align: center;
+    background-image: linear-gradient(#f4f4f4,#cccccc);
+    box-shadow: 0px 16px 16px #00305e;
+    color:#00305e;
+  }
+
   input[type="text"]{
     width:40%;
     font-size:14px;
   }
 
-  select{
-    width: 20.5%;
-    font-size:14px;
-    background:lightgrey;
-  }
-
 #Other{
     width:20%;
   }
+
   input[type="submit"]{
     font-size:15px;
     border-radius:25%;
-
   }

@@ -41,34 +41,15 @@
 		<div id = 'login' class="login-container">
 			<script type="text/javascript">
 				if (sessionStorage.getItem("user") == null) {
-					document.getElementById("login").innerHTML = '<form onsubmit = "login()"><button type="submit">Login</button><input type="password" placeholder="Password" id="psw"><input type="text" placeholder="Email Address" id="username"></form>';
+					document.getElementById("login").innerHTML = '<form onsubmit = "login()"><input type="text" placeholder="Email Address" id="username"><input type="password" placeholder="Password" id="psw"><button type="submit">Login</button></form>';
 				} else {
 					const user = sessionStorage.getItem("user");
 					document.getElementById("login").innerHTML = '<p>'+ user +' | <a onclick = "logout()">Logout</a></p>';
 				}
 			</script>
-    			<script>
-    				function login(){
-    					var user = document.getElementById("username").value;
-              //var pass = document.getElementById("password").value;
-              if($("#psw").val() !== "" && $("#username").val() !==""){
-                sessionStorage.setItem("user", user);
-                alert('You have successfully logged in');
-                location = location;
-              }
-              else{
-                alert("Cridentials failed try again");
-              }
-    				}
-
-    				function logout(){
-    					alert('You have successfully logged out');
-    					sessionStorage.removeItem("user");
-    					document.location.replace("Homepage.html");
-    				}
-    			</script>
+    			<script src="../login.js"></script>
   			</div>
-		</div>
+	</div>
 
 	<div id = 'SigninDiv' class = "signin">
 		<body>
