@@ -82,11 +82,12 @@ $(document).ready(function(){
 			ot = $("#Com").val();
 		}
 		if($("#type").val() === "Other"){
-			tit = $("#ifOther").val()
+			tit = $("#isOther").val()
 		}
 		else{
 			tit = $("#type").val();
 		}
+		//console.log($("#isOther").val());
 		var d = parseInt($("#dur").val());
 		//console.log($("#rev").val());
 		var r =parseInt($("#rev").val());
