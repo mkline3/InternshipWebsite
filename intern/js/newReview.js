@@ -116,6 +116,7 @@ $(document).ready(function(){
 				console.log("Error:"  + error);
 			}
 		});
+		window.location.href="../html/Homepage.html";
 	});
 
 });
