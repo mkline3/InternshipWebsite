@@ -49,17 +49,20 @@
 			</div>
 		</div>
 		<div id = 'login' class="login-container">
+      <input type="hidden" id="us" >
+      <input type="hidden" id="admin">
 			<script type="text/javascript">
 				if (sessionStorage.getItem("user") == null) {
-					document.getElementById("login").innerHTML = '<form onsubmit = "loginF()"><input type="text" placeholder="Email Address" id="username"><input type="password" placeholder="Password" id="psw"><button type="submit">Login</button></form>';
+					document.getElementById("login").innerHTML = '<form id="Login" onSubmit="return false"><input type="text" placeholder="Email Address" id="username"><input type="password" placeholder="Password" id="psw"><button type="submit">Login</button></form>';
 				} else {
 					const user = sessionStorage.getItem("user");
 					document.getElementById("login").innerHTML = '<p>'+ user +' | <a onclick = "logout()">Logout</a></p>';
 				}
 			</script>
-          <script >
-            function loginF(){
-
+          <script src="../js/login.js">
+           /* function loginF(){
+              console.log("Click");
+              alert("bitch");
              $.ajax({
                 url: 'http://localhost:8080/login',
                 type: "GET",
@@ -86,7 +89,7 @@
               alert('You have successfully logged out');
               sessionStorage.removeItem("user");
               document.location.replace("Homepage.html");
-            }
+            }*/
         
     			</script>
   			</div>
