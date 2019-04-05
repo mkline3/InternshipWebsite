@@ -91,7 +91,6 @@ app.get('/login', async (req, res) =>{
 })
 
 
-
 app.post('/newReview', async (req, res) =>{
     var company = req.body.comp;
     var address = req.body.address;
