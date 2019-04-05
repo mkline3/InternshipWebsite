@@ -201,8 +201,14 @@ app.delete('/delete-user', async (req, res) => {
         }
     }
 })
+
 app.get('/map', async (req, res) => {
-    
+    try {
+        var results = await pool.query('select longitude, lattitude, company_name from reviews');
+        res.json(results.rows);
+    }  catch(e) {
+        console.log("error collecting map data", e);
+    }
 })
 
 app.delete('/delete-review', async (req, res) => {

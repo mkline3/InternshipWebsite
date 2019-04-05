@@ -145,45 +145,66 @@
       		});
 
       		//marker layer
-      		var markers = [];
-      		var markerNum = 5;
+      		var markerNum = 0;
+
+          var vectorSource = new ol.source.Vector({
+          });
 
       		var marker = new ol.Feature({
       			geometry: new ol.geom.Point(ol.proj.fromLonLat([-77.475, 38.302])),
-      			name: 'UNIVERSITY',
-      		});
-      		markers.push(marker);
-
-      		var vectorSource = new ol.source.Vector({
-      			features: markers
+      			name: 'Univerity of Mary Washington',
       		});
 
-      		var iconStyle = new ol.style.Style({
-      			image: new ol.style.Icon(({
-      				scale: 0.1,
-      				anchor: [0.5, 0.8],
-      				anchorXUnits: 'fraction',
-      				anchorYUnits: 'fraction',
-      				opacity: 0.80,
-      				src: '../img/marker.png'
-      			}))
-      		});
+      		vectorSource.addFeature(marker);
 
-      		var vectorLayer = new ol.layer.Vector({
-      			source: vectorSource,
-      			style: iconStyle
-      		});
+          $.ajax({
+            url: 'http://localhost:8080/map',
+            type: "GET",
+            success: function(results){
+              for(var i = 0; i < results.length; i++) {
+                var long = parseFloat(results[i].longitude);
+                var lat = parseFloat(results[i].lattitude);
+                alert(lat);
+                var marker = new ol.Feature({
+                  geometry: new ol.geom.Point(ol.proj.fromLonLat([long, lat])),
+                });
 
-      		map.addLayer(vectorLayer);
+                vectorSource.addFeature(marker);
+              }
 
-      		map.on('click', function(evt) {
-      			map.forEachFeatureAtPixel(evt.pixel, function(feature, layer) {
-      				map.getView().setCenter(feature.get('geometry').getCoordinates());
-      				map.getView().setZoom(16);
-      				//alert(feature.get('name'));
+              var iconStyle = new ol.style.Style({
+                image: new ol.style.Icon(({
+                  scale: 0.1,
+                  anchor: [0.5, 0.8],
+                  anchorXUnits: 'fraction',
+                  anchorYUnits: 'fraction',
+                  opacity: 0.80,
+                  src: '../img/marker.png'
+                }))
+              });
 
-      			});	
-      		});
+              var vectorLayer = new ol.layer.Vector({
+                source: vectorSource,
+                style: iconStyle
+              });
+
+              map.addLayer(vectorLayer);
+
+              map.on('click', function(evt) {
+                map.forEachFeatureAtPixel(evt.pixel, function(feature, layer) {
+                  map.getView().setCenter(feature.get('geometry').getCoordinates());
+                  map.getView().setZoom(16);
+                  //alert(feature.get('name'));
+
+                }); 
+              });
+            },
+            error: function(error){
+              console.log(error);
+            }
+          });
+
+      		
     </script>
 
     <!--OpenLayers Marker Layer-->
