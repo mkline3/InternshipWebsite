@@ -90,9 +90,7 @@ app.get('/login', async (req, res) =>{
 
 })
 
-app.get('/map', async (req, res) => {
-    
-});
+
 
 app.post('/newReview', async (req, res) =>{
     var company = req.body.comp;
@@ -207,6 +205,9 @@ app.delete('/delete-user', async (req, res) => {
             console.log('Error running delete' + e);
         }
     }
+})
+app.get('/map', async (req, res) => {
+    
 })
 
 app.delete('/delete-review', async (req, res) => {

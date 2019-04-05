@@ -74,7 +74,7 @@
 		<form id="emailField" onsubmit="return false">
 			<div class="box">
 				<h1>Create Login</h1>
-				<input type="text" id = "email" name="email" placeholder="example@mail.umw.edu">
+				<input type="text" id = "email" placeholder="example@mail.umw.edu">
 				<input type="submit" id="confirm" value="confirm">
 				<br>
 				<input type="text" id = "ec" placeholder="enter confirmation code">
@@ -102,14 +102,14 @@
 						<option id="Other">Other</option>
 					</select>
 					<div id="company">
-						<input type="text" id = "comp" name="company" placeholder="Company Name">
+						<input type="text" id = "comp" placeholder="Company Name">
 					</div>
 					<div>
-						<input type="text" id = "address" placeholder="Company Address" required>
+						<input type="text" id = "address" placeholder="Company Address" >
 					</div>
-						<input type="text" id = "city" placeholder="City" required>
+						<input type="text" id = "city" placeholder="City" >
 					<div>
-						<select id="state"required>
+						<select id="state">
 							<option id="" selected disabled>State</option>
 							<option id="AL">Alabama</option>
 							<option id="AK">Alaska</option>
@@ -168,7 +168,7 @@
 				<div id="details">
 					<h3>Internship Details</h3>
 					<div>
-						<select id="semester" required>
+						<select id="semester" >
 							<option id="" disabled selected>Pick Internship Season</option>
 							<option id="summer">Summer</option>
 							<option id="fall">Fall</option>
@@ -179,7 +179,7 @@
 				</div>
 
 					<div>
-						<select id="dur" required>
+						<select id="dur" >
 							<option id="" disabled selected>How many weeks?</option>
 							<option id="1">1</option>
 							<option id="2">2</option>
@@ -197,14 +197,14 @@
 					</div>
 
 					<div>
-						<select id="type" required>
+						<select id="type" >
 							<option id="" disabled selected>Pick Internship Title</option>
 							<option id="other">Other</option>
 						</select>
 					</div>
 
 					<div id="ifOther">
-						<input type="text" id="isOther" placeholder='What was your job title' required>
+						<input type="text" id="isOther" placeholder='What was your job title' >
 					</div>
 
 					<div>
@@ -228,7 +228,7 @@
 
 				<div id="extras">
 					<h3>Rating</h3>
-					<select id="rev" required>
+					<select id="rev" >
 						<option id='' disabled selected>Rate with Stars</option>
 						<option id="1">1</option>
 						<option id="2">2</option>
@@ -237,7 +237,7 @@
 						<option id="5">5</option>
 					</select>
 					<h3>Comments</h3>
-					<textarea rows="10" cols="100" id="textbox" form="usrform" placeholder="Enter brief review here...." required></textarea>
+					<textarea rows="10" cols="100" id="textbox" form="usrform" placeholder="Enter brief review here...." ></textarea>
 				</div>
 
 				<input type="submit" id="submit" value="submit">

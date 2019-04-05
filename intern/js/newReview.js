@@ -110,13 +110,14 @@ $(document).ready(function(){
 			success: function(result){
 
 				console.log(result);
+				window.location.href="../html/Homepage.html";
 
 			},
 			error: function(error){
 				console.log("Error:"  + error);
 			}
 		});
-		window.location.href="../html/Homepage.html";
+		
 	});
 
 });
