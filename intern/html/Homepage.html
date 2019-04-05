@@ -164,7 +164,6 @@
               for(var i = 0; i < results.length; i++) {
                 var long = parseFloat(results[i].longitude);
                 var lat = parseFloat(results[i].lattitude);
-                alert(lat);
                 var marker = new ol.Feature({
                   geometry: new ol.geom.Point(ol.proj.fromLonLat([long, lat])),
                 });
