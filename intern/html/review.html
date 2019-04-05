@@ -41,13 +41,44 @@
 		<div id = 'login' class="login-container">
 			<script type="text/javascript">
 				if (sessionStorage.getItem("user") == null) {
-					document.getElementById("login").innerHTML = '<form onsubmit = "login()"><input type="text" placeholder="Email Address" id="username"><input type="password" placeholder="Password" id="psw"><button type="submit">Login</button></form>';
+					document.getElementById("login").innerHTML = '<form onsubmit = "loginF()"><input type="text" placeholder="Email Address" id="username"><input type="password" placeholder="Password" id="psw"><button type="submit">Login</button></form>';
 				} else {
 					const user = sessionStorage.getItem("user");
 					document.getElementById("login").innerHTML = '<p>'+ user +' | <a onclick = "logout()">Logout</a></p>';
 				}
 			</script>
-    			<script src="../login.js"></script>
+          <script >
+            function loginF(){
+
+             $.ajax({
+                url: 'http://localhost:8080/login',
+                type: "GET",
+                data:{
+                  email: user,
+                  password: password,
+
+                },
+                success: function(result){
+                  sessionStorage.setItem("user", user);
+                  alert('You have successfully logged in');
+                  location = location;
+                  console.log(result);
+                },
+                error: function(error){
+                  alert("Credentials failed try again");
+                  console.log("Error:"  + error);
+                }
+              });
+              
+            }
+
+            function logout(){
+              alert('You have successfully logged out');
+              sessionStorage.removeItem("user");
+              document.location.replace("Homepage.html");
+            }
+        
+    			</script>
   			</div>
 	</div>
 
@@ -65,7 +96,7 @@
 				<br>
 				<input type="password" id = "p2" placeholder="retype password">
 				<br><br>
-				<input type="submit" id="sub" value="submit">				
+				<input type="submit" id="submit" value="submit">				
 			</div>
 		</form>
 		<script src="../js/newLogin.js"></script>
