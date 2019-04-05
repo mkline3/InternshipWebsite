@@ -57,53 +57,37 @@
 					document.getElementById("login").innerHTML = '<p>'+ user +' | <a onclick = "logout()">Logout</a></p>';
 				}
 			</script>
-    			<script src="../js/login.js">
-          /*  var test;
-          $(document).ready(function(){
-            $.ajax({
-                url: 'http://localhost:8080/log',
+          <script >
+            function loginF(){
+
+             $.ajax({
+                url: 'http://localhost:8080/login',
                 type: "GET",
-                /*data:{
-                  email: $("#username").val(),
-                  password: $("#psw").val(),
+                data:{
+                  email: user,
+                  password: password,
 
                 },
                 success: function(result){
+                  sessionStorage.setItem("user", user);
+                  alert('You have successfully logged in');
+                  location = location;
                   console.log(result);
-                  test = result;
-                  //console.log(result);
                 },
                 error: function(error){
+                  alert("Credentials failed try again");
                   console.log("Error:"  + error);
                 }
               });
-          });
+              
+            }
 
-    				function login(){
-    					var user = document.getElementById("username").value;
-              var n = 0;
-              for(var i = 0; i < test.length; i++) {
-                    if(result[i].username === $("#username").val() && result[i].password === $("#psw").val()){
-                      n = 1;
-                    }
-                  }
-
-                  if(n === 1){
-                    sessionStorage.setItem("user", user);
-                    alert('You have successfully logged in');
-                    location = location;
-                  }
-                  else{
-                    alert("Cridentials failed try again");
-                  }
-    					
-    				}
-
-    				function logout(){
-    					alert('You have successfully logged out');
-    					sessionStorage.removeItem("user");
-    					document.location.replace("Homepage.html");
-    				}*/
+            function logout(){
+              alert('You have successfully logged out');
+              sessionStorage.removeItem("user");
+              document.location.replace("Homepage.html");
+            }
+        
     			</script>
   			</div>
 	</div>
@@ -122,7 +106,7 @@
 				<br>
 				<input type="password" id = "p2" placeholder="retype password">
 				<br><br>
-				<input type="submit" id="submit" value="submit">				
+				<input type="submit" id="sub" value="submit">				
 			</div>
 		</form>
 		<script src="../js/newLogin.js"></script>
