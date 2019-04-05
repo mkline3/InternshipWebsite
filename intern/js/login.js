@@ -1,29 +1,36 @@
-function login(user, password){
 
+
+$(document).ready(function(){
+
+$("#Login").submit(function(){
+  console.log($("#username").val());
+  console.log($("#psw").val());
    $.ajax({
       url: 'http://localhost:8080/login',
       type: "GET",
-      data:{
-        email: user,
-        password: password,
+      /*data:{
+        email: $("#username").val(),
+        password: $("#psw").val(),
 
-      },
+      },*/
       success: function(result){
-        sessionStorage.setItem("user", user);
+        console.log(result);
+        sessionStorage.setItem($("#username").val(), user);
         alert('You have successfully logged in');
         location = location;
-        console.log(result);
+        
       },
       error: function(error){
-        alert("Credentials failed try again");
         console.log("Error:"  + error);
       }
     });
   	
-  }
+  });
 
   function logout(){
     alert('You have successfully logged out');
     sessionStorage.removeItem("user");
     document.location.replace("Homepage.html");
-  }
+  };
+
+});

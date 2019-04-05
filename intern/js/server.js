@@ -71,17 +71,13 @@ app.get('/review', async (req, res) =>{
 })
 
 app.get('/login', async (req, res) =>{
-    var test_email = req.query.email;
-    var test_password = req.query.password;
+    //var test_email = req.query.email;
+    //var test_password = req.query.password;
 
     try{
-       login = await pool.query('select user_email from users where user_email = $1 and password = $2',values[test_email, test_password]);
+       login = await pool.query('select * from users ');
 
-       if(login.rows = 0){
-          res.json('Wrong credentials');
-       } else {
-            res.json('Log in successful');
-        } 
+          res.json(login.rows);
     }
     catch(e){
         console.log('Error running login', e);
