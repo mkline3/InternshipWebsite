@@ -138,6 +138,8 @@
     		</form>
 		</div>
 		<div id = 'map' class = "Map-container"></div>
+    <!--popup Div-->
+    <div id = 'popup'></div>
 		<!--OpenLayers map creation-->
 		<script type="text/javascript">
       		var map = new ol.Map({
@@ -200,7 +202,18 @@
 
               map.on('click', function(evt) {
                 map.forEachFeatureAtPixel(evt.pixel, function(feature, layer) {
-                  map.getView().setCenter(feature.get('geometry').getCoordinates());
+                  var coordinates = feature.get('geometry').getCoordinates();
+
+                  var popup = new ol.Overlay({
+                    element: document.getElementById('popup'),
+                    positioning: 'top-center',
+                    offset: [0, -100]
+                  });
+
+                  popup.setPosition(coordinates);
+                  map.addOverlay(popup);
+
+                  map.getView().setCenter(coordinates);
                   map.getView().setZoom(14);
                   //alert(feature.get('name'));
 
