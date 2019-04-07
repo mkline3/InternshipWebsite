@@ -192,7 +192,7 @@
               map.on('click', function(evt) {
                 map.forEachFeatureAtPixel(evt.pixel, function(feature, layer) {
                   map.getView().setCenter(feature.get('geometry').getCoordinates());
-                  map.getView().setZoom(16);
+                  map.getView().setZoom(14);
                   //alert(feature.get('name'));
 
                 }); 
