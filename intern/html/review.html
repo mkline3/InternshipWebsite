@@ -51,24 +51,35 @@
             function loginF(){
 
              $.ajax({
-                url: 'http://localhost:8080/login',
-                type: "GET",
-                data:{
-                  email: user,
-                  password: password,
-
-                },
-                success: function(result){
-                  sessionStorage.setItem("user", user);
-                  alert('You have successfully logged in');
-                  location = location;
-                  console.log(result);
-                },
-                error: function(error){
-                  alert("Credentials failed try again");
-                  console.log("Error:"  + error);
-                }
-              });
+			      url: 'http://localhost:8080/login',
+			      type: "GET",
+			      success: function(result){
+			        console.log(result);
+			        
+			        var t = false;
+			        for(var i = 0; i < result.length; i++) {
+			          //console.log(result[i].password);
+			          //console.log(result[i].user_email);
+			          if($("#username").val() === result[i].user_email && $("#psw").val() === result[i].password){
+			            sessionStorage.setItem(result[i].user_name, user);
+			            $("#us").val(result[i].user_name);
+			            t = true;
+			            break;
+			          }
+			        }
+			        if(t){
+			          alert('You have successfully logged in');
+			          location = location;
+			        }
+			        else{
+			          alert("Your cridentials have failed");
+			        }
+			        
+			      },
+			      error: function(error){
+			        console.log("Error:"  + error);
+			      }
+			    });
               
             }
 
