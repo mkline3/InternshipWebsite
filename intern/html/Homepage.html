@@ -54,6 +54,7 @@
 				if (sessionStorage.getItem("user") == null) {
 					document.getElementById("login").innerHTML = '<form id="Login" onSubmit="return false"><input type="text" placeholder="Email Address" id="username"><input type="password" placeholder="Password" id="psw"><button type="submit">Login</button></form>';
 				} else {
+          document.getElementById("login").innerHTML = '<p>'+User+'</p>';
 					const user = sessionStorage.getItem("user");
           document.getElementById("login").innerHTML = '<p>'+ user +' | <a onclick = "logout()">Logout</a></p>';
 				}
@@ -73,7 +74,7 @@
                 //console.log(result[i].user_email);
                 if($("#username").val() === result[i].user_email && $("#psw").val() === result[i].password){
                   sessionStorage.setItem(result[i].user_name, user);
-                  $("#us").val(result[i].user_name);
+                 // $("#us").val(result[i].user_name);
                   t = true;
                   break;
                 }
