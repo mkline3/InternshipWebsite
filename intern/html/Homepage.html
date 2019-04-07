@@ -164,6 +164,9 @@
       		var marker = new ol.Feature({
       			geometry: new ol.geom.Point(ol.proj.fromLonLat([-77.475, 38.302])),
       			name: 'Univerity of Mary Washington',
+            city: 'Fredericksburg',
+            state: 'Virginia',
+            address: '1301 College Ave',
       		});
 
       		vectorSource.addFeature(marker);
@@ -177,6 +180,10 @@
                 var lat = parseFloat(results[i].lattitude);
                 var marker = new ol.Feature({
                   geometry: new ol.geom.Point(ol.proj.fromLonLat([long, lat])),
+                  name: results[i].company_name,
+                  city: results[i].city,
+                  state: results[i].state,
+                  address: results[i].address,
                 });
 
                 vectorSource.addFeature(marker);
@@ -204,17 +211,23 @@
                 map.forEachFeatureAtPixel(evt.pixel, function(feature, layer) {
                   var coordinates = feature.get('geometry').getCoordinates();
 
+                  $("#popup").empty();
+                  $("#popup").append("<h2>" + feature.get('name') + "</h2><h3>" + feature.get('address') + ", " + feature.get('city') + ", " + feature.get('state') + "</h3>");
+
                   var popup = new ol.Overlay({
                     element: document.getElementById('popup'),
                     positioning: 'top-center',
-                    offset: [0, -100]
+                    offset: [0, -130],
                   });
 
                   popup.setPosition(coordinates);
                   map.addOverlay(popup);
 
-                  map.getView().setCenter(coordinates);
-                  map.getView().setZoom(14);
+                  map.getView().animate({
+                    center: coordinates,
+                    zoom: 16
+                  });
+                  //map.getView().setZoom(14);
                   //alert(feature.get('name'));
 
                 }); 

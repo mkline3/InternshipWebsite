@@ -245,6 +245,21 @@ html ,body {
   color: #61dafb;
 }
 
+#popup {
+  background-image: linear-gradient(#f4f4f4,#cccccc);
+  box-shadow: 0px 16px 16px #3e3e3e;
+  border-radius: 10px;
+  min-width: 16vw;
+  height: 14vh;
+  font-size: 12px;
+  font-family: Arial, Helvetica, sans-serif;
+  padding-left: 10px;
+  padding-right: 10px;
+  float: left;
+  color: #00305e;
+  display: inline-block; 
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
