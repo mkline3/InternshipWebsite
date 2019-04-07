@@ -32,7 +32,7 @@ if ($("#us").val() == null) {
   const user = $("#us").val();
   $("#login").append('<p>'+ user +' | <a id="logout">Logout</a></p>');
 }*/
-$("#Login").submit(function(){
+/*$("#Login").submit(function(){
   console.log($("#username").val());
   console.log($("#psw").val());
    $.ajax({
@@ -66,7 +66,7 @@ $("#Login").submit(function(){
       }
     });
   	
-  });
+  });*/
 
   $("#logout").click(function(){
     alert('You have successfully logged out');
