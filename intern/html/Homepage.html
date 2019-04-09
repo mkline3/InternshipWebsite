@@ -84,7 +84,7 @@
                 location = location;
               }
               else{
-                alert("Your cridentials have failed");
+                alert("Your credentials have failed");
               }
               
             },
@@ -99,6 +99,13 @@
               alert('You have successfully logged out');
               sessionStorage.clear();
               document.location.replace("Homepage.html");
+            }
+
+            function gotoReview(company, state, city){
+              sessionStorage.setItem("company", company);
+              sessionStorage.setItem("state", state);
+              sessionStorage.setItem("city", city);
+              document.location.replace("review.html");
             }
         
     			</script>
@@ -213,7 +220,7 @@
                   var coordinates = feature.get('geometry').getCoordinates();
 
                   $("#popup").empty();
-                  $("#popup").append("<h2>" + feature.get('name') + "</h2><h3>" + feature.get('address') + ", " + feature.get('city') + ", " + feature.get('state') + "</h3>");
+                  $("#popup").append("<h2>" + feature.get('name') + "</h2><h3>" + feature.get('address') + ", " + feature.get('city') + ", " + feature.get('state') + "</h3><button onclick = 'gotoReview("+ "\"" +feature.get('name') + "\", \"" + feature.get('state') + "\", \"" + feature.get('city') + "\")'>Go To Reviews</button>");
 
                   var popup = new ol.Overlay({
                     element: document.getElementById('popup'),

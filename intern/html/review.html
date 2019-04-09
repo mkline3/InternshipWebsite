@@ -9,6 +9,7 @@
 	</head>
 
 	<div class = "App-header">
+
 		<div class = "nav">
 			<a href="Homepage.html"><img src = "..\img\umw.png" id = "logo"></a>
 			<div class = "Secondary-nav" id = 'secondary'>
@@ -41,52 +42,60 @@
 		<div id = 'login' class="login-container">
 			<script type="text/javascript">
 				if (sessionStorage.getItem("user") == null) {
-					document.getElementById("login").innerHTML = '<form onsubmit = "loginF()"><input type="text" placeholder="Email Address" id="username"><input type="password" placeholder="Password" id="psw"><button type="submit">Login</button></form>';
+					document.getElementById("login").innerHTML = '<form id="Login" onSubmit="loginF()"><input type="text" placeholder="Email Address" id="username"><input type="password" placeholder="Password" id="psw"><button type="submit">Login</button></form>';
 				} else {
 					const user = sessionStorage.getItem("user");
-					document.getElementById("login").innerHTML = '<p>'+ user +' | <a onclick = "logout()">Logout</a></p>';
+          document.getElementById("login").innerHTML = '<p>'+ user +' | <a onclick = "logout()">Logout</a></p>';
 				}
 			</script>
-          <script >
-            function loginF(){
-
+          <script>
+          function loginF(){
+            var username = $("#username").val();
              $.ajax({
-			      url: 'http://localhost:8080/login',
-			      type: "GET",
-			      success: function(result){
-			        console.log(result);
-			        
-			        var t = false;
-			        for(var i = 0; i < result.length; i++) {
-			          //console.log(result[i].password);
-			          //console.log(result[i].user_email);
-			          if($("#username").val() === result[i].user_email && $("#psw").val() === result[i].password){
-			            sessionStorage.setItem(result[i].user_name, user);
-			            $("#us").val(result[i].user_name);
-			            t = true;
-			            break;
-			          }
-			        }
-			        if(t){
-			          alert('You have successfully logged in');
-			          location = location;
-			        }
-			        else{
-			          alert("Your cridentials have failed");
-			        }
-			        
-			      },
-			      error: function(error){
-			        console.log("Error:"  + error);
-			      }
-			    });
+            url: 'http://localhost:8080/login',
+            type: "GET",
+            success: function(result){
+              console.log(result);
+              
+              var t = false;
+              for(var i = 0; i < result.length; i++) {
+                //console.log(result[i].password);
+                //console.log(result[i].user_email);
+                if($("#username").val() === result[i].user_email && $("#psw").val() === result[i].password){
+                  //alert(username);
+                 // $("#us").val(result[i].user_name);
+                  t = true;
+                  break;
+                }
+              }
+              if(t){
+                sessionStorage.setItem("user", username);
+                alert('You have successfully logged in');
+                location = location;
+              }
+              else{
+                alert("Your credentials have failed");
+              }
+              
+            },
+            error: function(error){
+              console.log("Error:"  + error);
+            }
+          });
               
             }
 
             function logout(){
               alert('You have successfully logged out');
-              sessionStorage.removeItem("user");
+              sessionStorage.clear();
               document.location.replace("Homepage.html");
+            }
+
+            function gotoReview(company, state, city){
+              sessionStorage.setItem("company", company);
+              sessionStorage.setItem("state", state);
+              sessionStorage.setItem("city", city);
+              document.location.replace("review.html");
             }
         
     			</script>
@@ -158,7 +167,6 @@
 					</select>
 					
 				</div>
-
 				<div id="sub">
 					<input type="submit" id="submit" value="submit" >
 				</div>
@@ -185,6 +193,5 @@
 		</div>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script src="../js/review.js"></script>
-		
 	</body>
 </html>

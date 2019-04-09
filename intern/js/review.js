@@ -192,5 +192,11 @@ $(document).ready(function(){
 
 	});
 
+	if(sessionStorage.getItem("company") != null) {
+		var cn = sessionStorage.getItem("company");
+		$("#name option[value='" + cn + "']").attr("selected", "true");
+		alert(cn);
+	}
+
 });
 //?name=#1&state=#2&city=#3&pay=#4&order=#5
