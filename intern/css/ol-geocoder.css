@@ -3,7 +3,13 @@
  * A geocoder extension for OpenLayers.
  * https://github.com/jonataswalker/ol-geocoder
  * Built: Sat Jul 28 2018 15:24:04 GMT-0300 (Brasilia Standard Time)
+ 
+
+ https://stackoverflow.com/questions/47910874/search-address-with-openlayers
+ 
  */
+ 
+ 
 .ol-geocoder.gcd-gl-container {
   position: absolute;
   top: 4.875em;
