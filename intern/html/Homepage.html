@@ -78,6 +78,10 @@
                   break;
                 }
               }
+              console.log(result[i].is_admin);
+              if(result[i].is_admin === true){
+                sessionStorage.setItem("admin", result[i].is_admin);
+              }
               if(t){
                 sessionStorage.setItem("user", username);
                 alert('You have successfully logged in');

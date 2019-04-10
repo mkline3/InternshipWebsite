@@ -32,14 +32,33 @@ $(document).ready(function(){
 			}
 		});
 	});
+	var cn;
+	var st;
+	var cy;
+
+	if(sessionStorage.getItem("company") != null & sessionStorage.getItem("company") != "null") {
+		 cn = sessionStorage.getItem("company");
+		 st = sessionStorage.getItem("state");
+		 cy = sessionStorage.getItem("city")
+		$("#name").val(cn);
+		//$("#name").formSelect();
+		sessionStorage.setItem("company", null);
+        sessionStorage.setItem("state", null);
+        sessionStorage.setItem("city", null);
+	}
+	else{
+		cn=$("#name").val();
+		st= $("#state").val();
+		cy= $("#city").val();
+	}
 
 	$.ajax({
 		url: 'http://localhost:8080/review',
 		type: "GET",
 		data:{
-			name: $("#name").val(),
-			state: $("#state").val(),
-			city: $("#city").val(),
+			name: cn,
+			state: st,
+			city: cy,
 			paid: $("#pay").val(),
 			rate:$("#rate").val(),
 
@@ -191,11 +210,6 @@ $(document).ready(function(){
 		});
 
 	});
-
-	if(sessionStorage.getItem("company") != null) {
-		var cn = sessionStorage.getItem("company");
-		
-	}
 
 });
 //?name=#1&state=#2&city=#3&pay=#4&order=#5
