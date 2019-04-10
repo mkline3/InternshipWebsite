@@ -70,6 +70,8 @@
                   break;
                 }
               }
+             console.log(result[i].is_admin);
+             //alert(fuck);
               if(result[i].is_admin === true){
               	sessionStorage.setItem("admin", result[i].is_admin);
               }
@@ -187,6 +189,30 @@
 					</tbody>
 				</table>
 			</form>
+			
+		
+		<form id="approval">
+			<div>
+				<h1>Waiting Approval</h1>
+			</div>
+			<table id="approvalFolder">
+				<tbody>
+					<tr>
+						<th> Company </th>
+						<th> Job </th>
+						<th> Rate </th>
+						<th> State </th>
+						<th> City </th>
+						<th> Pay Type </th>
+						<th> Season </th>
+						<th> Duration </th>
+						<th> Comments </th>
+						<th> Decision </th>
+					<tr>
+				</tbody>
+			</table>
+			<br><br><br>
+		</form>
 		</div>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script src="../js/review.js"></script>

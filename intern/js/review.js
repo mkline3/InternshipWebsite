@@ -211,5 +211,29 @@ $(document).ready(function(){
 
 	});
 
+	if(sessionStorage.getItem("admin") === true){
+		$("#approval").show();
+		$.ajax({
+		url: 'http://localhost:8080/approval',
+		type: "GET",
+		success: function(result){
+			console.log(result);
+			for(var i = 0; i < result.length; i++) {
+    			//console.log(result[i].company_name);
+    			$("#approvalFolder").find('tbody').append( "<tr><td>" + result[i].company_name +"</td><td>" + result[i].job_title +"</td><td>" + result[i].rating +"</td><td>" + result[i].state +"</td><td>" + result[i].city +"</td><td>" + result[i].salary +"</td><td>" + result[i].season +"</td><td>" + result[i].duration +"</td><td>"+ result[i].other_data +"</td></tr>" );
+
+			}
+
+		},
+		error: function(error){
+			console.log("Error:"  + error);
+		}
+	});
+
+	}
+	else{
+		$("#approval").hide();
+	}
+
 });
 //?name=#1&state=#2&city=#3&pay=#4&order=#5
