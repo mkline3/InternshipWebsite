@@ -194,8 +194,7 @@ $(document).ready(function(){
 
 	if(sessionStorage.getItem("company") != null) {
 		var cn = sessionStorage.getItem("company");
-		$("#name option[value='" + cn + "']").attr("selected", "true");
-		alert(cn);
+		
 	}
 
 });

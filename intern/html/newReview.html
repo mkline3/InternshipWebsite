@@ -6,7 +6,8 @@
 		<link rel="stylesheet" href="..\css\App.css" type="text/css">
 	</head>
 	
-		<div class = "App-header">
+	<div class = "App-header">
+
 		<div class = "nav">
 			<a href="Homepage.html"><img src = "..\img\umw.png" id = "logo"></a>
 			<div class = "Secondary-nav" id = 'secondary'>
@@ -39,32 +40,18 @@
 		<div id = 'login' class="login-container">
 			<script type="text/javascript">
 				if (sessionStorage.getItem("user") == null) {
-					document.getElementById("login").innerHTML = '<form onsubmit = "login()"><input type="text" placeholder="Email Address" id="username"><input type="password" placeholder="Password" id="psw"><button type="submit">Login</button></form>';
+					document.getElementById("login").innerHTML = '<form id="Login" onSubmit="loginF()"><input type="text" placeholder="Email Address" id="username"><input type="password" placeholder="Password" id="psw"><button type="submit">Login</button></form>';
 				} else {
 					const user = sessionStorage.getItem("user");
-					document.getElementById("login").innerHTML = '<p>'+ user +' | <a onclick = "logout()">Logout</a></p>';
+          document.getElementById("login").innerHTML = '<p>'+ user +' | <a onclick = "logout()">Logout</a></p>';
 				}
 			</script>
-    			<script>
-    				function login(){
-    					var user = document.getElementById("username").value;
-              //var pass = document.getElementById("password").value;
-              if($("#psw").val() !== "" && $("#username").val() !==""){
-                sessionStorage.setItem("user", user);
-                alert('You have successfully logged in');
-                location = location;
-              }
-              else{
-                alert("Credentials failed try again");
-              }
-    					
-    				}
-
-    				function logout(){
-    					alert('You have successfully logged out');
-    					sessionStorage.removeItem("user");
-    					document.location.replace("Homepage.html");
-    				}
+          <script>
+            function logout(){
+              alert('You have successfully logged out');
+              sessionStorage.clear();
+              document.location.replace("Homepage.html");
+            }
     			</script>
   			</div>
 	</div>
