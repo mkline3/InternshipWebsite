@@ -131,21 +131,21 @@ app.post("/newLog", async(req,res)=>{
 app.get('/comp', async (req, res) =>{
 
     try{
-       comp = await pool.query("select DISTINCT company_name from reviews");
+       comp = await pool.query("select DISTINCT company_name from reviews where is_approved = TRUE");
        res.json(comp.rows);
     }
     catch(e){
-        console.log('Error running login', e);
+        console.log('Error running comp', e);
     }
 })
 app.get('/title', async (req, res) =>{
 
     try{
-       comp = await pool.query("select DISTINCT job_title from reviews");
+       comp = await pool.query("select DISTINCT job_title from reviews where is_approved = TRUE");
        res.json(comp.rows);
     }
     catch(e){
-        console.log('Error running login', e);
+        console.log('Error running title', e);
     }
 })
 app.get('/state', async (req, res) =>{
@@ -153,15 +153,15 @@ app.get('/state', async (req, res) =>{
     //console.log(name);
     try{
         if(name !=="All"){
-            comp = await pool.query("select DISTINCt state from reviews where company_name like $1",[name]);
+            comp = await pool.query("select DISTINCt state from reviews where company_name like $1 and is_approved = TRUE",[name]);
         }
         else{
-            comp = await pool.query("select DISTINCt state from reviews");
+            comp = await pool.query("select DISTINCt state from reviews where is_approved = TRUE");
         }
       res.json(comp.rows);
     }
     catch(e){
-        console.log('Error running login', e);
+        console.log('Error running state', e);
     }
 })
 app.get('/city', async (req, res) =>{
@@ -181,7 +181,7 @@ app.get('/city', async (req, res) =>{
       res.json(comp.rows);
     }
     catch(e){
-        console.log('Error running login', e);
+        console.log('Error running city', e);
     }
 })
 
