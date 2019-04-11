@@ -97,6 +97,7 @@ app.post('/newReview', async (req, res) =>{
     var duration = req.body.dur; 
     var job_title = req.body.types; 
     var salary = req.body.pay;
+    var dollars = req.body.dollars;
     //console.log(duration);
     
     var rating = req.body.review;
@@ -104,8 +105,8 @@ app.post('/newReview', async (req, res) =>{
     //console.log(rating);
     //var id_num = 5
     try {
-        var response = await pool.query('insert into reviews(company_name, address, city, state, season, duration, job_title, salary, rating, Other_data) values($1,$2,$3,$4,$5,$6,$7,$8,$9,$10)', 
-            [company, address, city, state, season, duration, job_title, salary, rating, Other_data]);
+        var response = await pool.query('insert into reviews(company_name, address, city, state, season, duration, job_title, salary, dollars, rating, Other_data) values($1,$2,$3,$4,$5,$6,$7,$8,$9,$10, $11)', 
+            [company, address, city, state, season, duration, job_title, salary,dollars, rating, Other_data]);
         res.json("it worked");
 
     } catch(e) {

@@ -87,6 +87,13 @@ $(document).ready(function(){
 		else{
 			tit = $("#type").val();
 		}
+		if($("#pay").val() === "paid"){
+			doll = $("#Rate").val()
+		}
+		else{
+			doll = "0";
+		}
+
 		//console.log($("#isOther").val());
 		var d = parseInt($("#dur").val());
 		//console.log($("#rev").val());
@@ -103,6 +110,7 @@ $(document).ready(function(){
 				dur: d,
 				types: tit,
 				pay: $("#pay").val(),
+				dollars: doll,
 				review: r,
 				textbox: $("#textbox").val()
 
