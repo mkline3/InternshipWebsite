@@ -139,7 +139,7 @@
 	<!--<img src = "..\img\banner-copy.png" id = "banner">-->
 
 	<div class = "Review-map-container">
-		<div class = "Review-container">
+		<!--<div class = "Review-container">
 			<h3>SEARCH BY</h3>
 			<form>
       			<input type="text" placeholder="Company Name" name="Search_Com">
@@ -148,7 +148,7 @@
       			<input type="text" placeholder="Zip Code" name="Search_Zip">
       			<input type="text" placeholder="Radius" name="Search_Rad">
     		</form>
-		</div>
+		</div>-->
 		<div id = 'map' class = "Map-container"></div>
     <!--popup Div-->
     <div id = 'popup'></div>
@@ -220,29 +220,32 @@
               map.addLayer(vectorLayer);
 
               map.on('click', function(evt) {
+                var x = true;
                 map.forEachFeatureAtPixel(evt.pixel, function(feature, layer) {
-                  var coordinates = feature.get('geometry').getCoordinates();
+                    var coordinates = feature.get('geometry').getCoordinates();
 
-                  $("#popup").empty();
-                  $("#popup").append("<h2>" + feature.get('name') + "</h2><h3>" + feature.get('address') + ", " + feature.get('city') + ", " + feature.get('state') + "</h3><button onclick = 'gotoReview("+ "\"" +feature.get('name') + "\", \"" + feature.get('state') + "\", \"" + feature.get('city') + "\")'>Go To Reviews</button>");
+                    $("#popup").empty();
+                    $("#popup").append("<h2>" + feature.get('name') + "</h2><h3>" + feature.get('address') + ", " + feature.get('city') + ", " + feature.get('state') + "</h3><button onclick = 'gotoReview("+ "\"" +feature.get('name') + "\", \"" + feature.get('state') + "\", \"" + feature.get('city') + "\")'>Go To Reviews</button>");
 
-                  var popup = new ol.Overlay({
-                    element: document.getElementById('popup'),
-                    positioning: 'top-center',
-                    offset: [0, -130],
-                  });
+                    var popup = new ol.Overlay({
+                      element: document.getElementById('popup'),
+                      positioning: 'top-center',
+                      offset: [0, -130],
+                      id: 1,
+                    });
 
-                  popup.setPosition(coordinates);
-                  map.addOverlay(popup);
+                    popup.setPosition(coordinates);
+                    map.addOverlay(popup);
 
-                  map.getView().animate({
-                    center: coordinates,
-                    zoom: 16
-                  });
-                  //map.getView().setZoom(14);
-                  //alert(feature.get('name'));
-
+                    map.getView().animate({
+                      center: coordinates,
+                      zoom: 16
+                    });
+                    x = false;
                 }); 
+                if(x) {
+                  map.getOverlayById(1).setPosition(undefined);
+                }
               });
             },
             error: function(error){

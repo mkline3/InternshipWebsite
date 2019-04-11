@@ -4,6 +4,10 @@ html ,body {
   background-color: #294664;
 }
 
+p {
+	margin: 0;
+}
+
 #active{
   	background-color:#798086;
   }
@@ -22,7 +26,9 @@ html ,body {
 	border-left-color: #162636;
 	border-style:inset;
 	box-shadow: inset 0px 0px 20px #162636;
-	overflow: hidden;
+	align-items: flex-start;
+	overflow-y: scroll;
+	overflow-x: hidden;
 }
 
 #filter {
@@ -67,4 +73,59 @@ html ,body {
   	height: 70vh;
   	width: 65vw;
   	font-size: calc(10px + 1vmin);
+}
+
+#review {
+	font-family: Arial, Helvetica, sans-serif;
+	position: relative;
+	padding-top: 0;
+	margin-top: -1vh;
+	min-height: 30vh;
+	width: 100%;
+	border-radius: 10px;
+	border: none;
+}
+
+#review p {
+	padding-left: 65px;
+	font-size: 16px;
+	color: #f4f4f4;
+	text-align: left;
+}
+
+#review #title{
+	color: white;
+	position: relative;
+	padding-left: 65px;
+	padding-right: 65px;
+	text-align: left;
+	font-weight: normal;
+	font-size: 14px;
+	padding-top: 5px;
+}
+
+#review a{
+	font-weight: bold;
+}
+
+#review img{
+	float: left;
+	position: relative;
+	padding-top: 8px;
+	padding-left: 20px;
+}
+
+::-webkit-scrollbar {
+  width: 20px;
+  height: 80%;
+  opacity: .2;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #162636; 
+  border-radius: 4px;
 }
