@@ -60,6 +60,7 @@
 			</script>
           <script>
           function loginF(){
+            console.log('Click');
             var username = $("#username").val();
              $.ajax({
             url: 'http://localhost:8080/login',
@@ -78,7 +79,7 @@
                   break;
                 }
               }
-              console.log(result[i].is_admin);
+             // console.log(result[i].is_admin);
               //console.log(result[i].is_admin);
               //alert(fuck);
               if(result[i].is_admin === true){
@@ -89,7 +90,7 @@
                 alert('You have successfully logged in');
                 location = location;
               }
-              else{
+              if(!t){
                 alert("Your credentials have failed");
               }
               
