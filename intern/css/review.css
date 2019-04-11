@@ -3,6 +3,10 @@ html ,body {
   padding: 0;
   background-color: #294664;
 }
+h1{
+	color:silver;
+	display:inline-block;
+}
 
 p {
 	margin: 0;
@@ -129,3 +133,20 @@ p {
   background: #162636; 
   border-radius: 4px;
 }
+
+#approval{
+	color:silver;
+	width:85%;
+	height:100%;
+	margin-left: 14vw;
+	background-color:#1e3248;
+	border-radius:20px 20px 20px 20px;
+	border-right-color: #34587f;
+	border-bottom-color: #34587f;
+	border-top-color: #162636;
+	border-left-color: #162636;
+	border-style:inset;
+	box-shadow: inset 0px 0px 20px #162636;
+	overflow: hidden;
+}
+

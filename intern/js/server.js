@@ -52,13 +52,13 @@ app.get('/review', async (req, res) =>{
     //console.log(rate);
     try{ 
         if(rate === "high"){
-            var response = await pool.query('select * from reviews where company_name LIKE $1 and state LIKE $2 and city LIKE $3 and salary LIKE $4 ORDER BY rating DESC',[name,state,city,paid]);
+            var response = await pool.query('select * from reviews where company_name LIKE $1 and state LIKE $2 and city LIKE $3 and salary LIKE $4 and is_approved ORDER BY rating DESC',[name,state,city,paid]);
             //var response = await pool.query('select * from reviews where company_name = $1', [name]);
         } else if(rate === "low"){
-            var response = await pool.query('select * from reviews where company_name LIKE $1 and state LIKE $2 and city LIKE $3 and salary LIKE $4 ORDER BY rating ASC',[name,state,city,paid]);
+            var response = await pool.query('select * from reviews where company_name LIKE $1 and state LIKE $2 and city LIKE $3 and salary LIKE $4 and is_approved ORDER BY rating ASC',[name,state,city,paid]);
         }
         else{
-            var response = await pool.query('select * from reviews where company_name LIKE $1 and state LIKE $2 and city LIKE $3 and salary LIKE $4',[name,state,city,paid]);
+            var response = await pool.query('select * from reviews where company_name LIKE $1 and state LIKE $2 and city LIKE $3 and salary LIKE $4 and is_approved',[name,state,city,paid]);
         }
 
         res.json(response.rows);
@@ -209,6 +209,17 @@ app.get('/map', async (req, res) => {
     }  catch(e) {
         console.log("error collecting map data", e);
     }
+})
+
+app.get('/approval', async (req, res) =>{
+    try{
+        var results = await pool.query("select * from reviews where not is_approved");
+        res.json(results.rows);
+    }
+    catch(e){
+        console.log("error collecting approval data", e);
+    }
+
 })
 
 app.delete('/delete-review', async (req, res) => {
