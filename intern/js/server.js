@@ -52,13 +52,13 @@ app.get('/review', async (req, res) =>{
     //console.log(rate);
     try{ 
         if(rate === "high"){
-            var response = await pool.query('select * from reviews where company_name LIKE $1 and state LIKE $2 and city LIKE $3 and salary LIKE $4 and is_approved ORDER BY rating DESC',[name,state,city,paid]);
+            var response = await pool.query('select * from reviews where company_name LIKE $1 and state LIKE $2 and city LIKE $3 and salary LIKE $4 ORDER BY rating DESC',[name,state,city,paid]);
             //var response = await pool.query('select * from reviews where company_name = $1', [name]);
         } else if(rate === "low"){
-            var response = await pool.query('select * from reviews where company_name LIKE $1 and state LIKE $2 and city LIKE $3 and salary LIKE $4 and is_approved ORDER BY rating ASC',[name,state,city,paid]);
+            var response = await pool.query('select * from reviews where company_name LIKE $1 and state LIKE $2 and city LIKE $3 and salary LIKE $4 ORDER BY rating ASC',[name,state,city,paid]);
         }
         else{
-            var response = await pool.query('select * from reviews where company_name LIKE $1 and state LIKE $2 and city LIKE $3 and salary LIKE $4 and is_approved',[name,state,city,paid]);
+            var response = await pool.query('select * from reviews where company_name LIKE $1 and state LIKE $2 and city LIKE $3 and salary LIKE $4',[name,state,city,paid]);
         }
 
         res.json(response.rows);

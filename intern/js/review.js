@@ -19,22 +19,42 @@ $(document).ready(function(){
 			},
 			success: function(result){
 				//$("#holder").empty();
+				if(sessionStorage.getItem("admin") == "true") {
+					for(var i = 0; i < result.length; i++) {
+						if(!result[i].is_approved) {
+							var color = "red";
+			    			var reviewDiv = document.createElement("div");
+			    			reviewDiv.setAttribute("id", "review");
+			    			reviewDiv.setAttribute("style", "background:" + color + ";");
+			    			reviewDiv.innerHTML = "<img src = '../img/review user.png' height = '38' width = '38'><h3 id = 'title'><a>" +  result[i].company_name + "</a>: " + result[i].job_title +
+			    			 " | " + result[i].salary + "<br>" + result[i].city + ", " + result[i].state + "<br>" + result[i].season + " | " + result[i].duration + "</h3><p>" + result[i].other_data + "</p>";
+			    			document.getElementById("holder").appendChild(reviewDiv); 
+			    		}
+					}
+				}
+
+				var flip = true;
 				for(var i = 0; i < result.length; i++) {
 	    			//console.log(result[i].company_name);
+
 	    			var color;
-	    			if(i % 2 == 0) {
+	    			if(flip) {
 	    				color = "#192b3f";
+	    				flip = false;
 	    			} else {
 	    				color = "#122030";
+	    				flip = true;
 	    			}
-	    			var reviewDiv = document.createElement("div");
-	    			reviewDiv.setAttribute("id", "review");
-	    			reviewDiv.setAttribute("style", "background:" + color + ";");
-	    			reviewDiv.innerHTML = "<img src = '../img/review user.png' height = '38' width = '38'><h3 id = 'title'><a>" +  result[i].company_name + "</a>: " + result[i].job_title +
-	    			 " | " + result[i].salary + "<br>" + result[i].city + ", " + result[i].state + "<br>" + result[i].season + " | " + result[i].duration + "</h3><p>" + result[i].other_data + "</p>";
-	    			document.getElementById("holder").appendChild(reviewDiv); 
-	    			//$("#reviewHolder").find('tbody').append( "<tr><td>" + result[i].company_name +"</td><td>" + result[i].job_title +"</td><td>" + result[i].rating +"</td><td>" + result[i].state +"</td><td>" + result[i].city +"</td><td>" + result[i].salary +"</td><td>" + result[i].season +"</td><td>" + result[i].duration +"</td><td>"+ result[i].other_data +"</td></tr>" );
 
+	    			if(result[i].is_approved) {
+		    			var reviewDiv = document.createElement("div");
+		    			reviewDiv.setAttribute("id", "review");
+		    			reviewDiv.setAttribute("style", "background:" + color + ";");
+		    			reviewDiv.innerHTML = "<img src = '../img/review user.png' height = '38' width = '38'><h3 id = 'title'><a>" +  result[i].company_name + "</a>: " + result[i].job_title +
+		    			 " | " + result[i].salary + "<br>" + result[i].city + ", " + result[i].state + "<br>" + result[i].season + " | " + result[i].duration + "</h3><p>" + result[i].other_data + "</p>";
+		    			document.getElementById("holder").appendChild(reviewDiv); 
+		    		}
+	    			//$("#reviewHolder").find('tbody').append( "<tr><td>" + result[i].company_name +"</td><td>" + result[i].job_title +"</td><td>" + result[i].rating +"</td><td>" + result[i].state +"</td><td>" + result[i].city +"</td><td>" + result[i].salary +"</td><td>" + result[i].season +"</td><td>" + result[i].duration +"</td><td>"+ result[i].other_data +"</td></tr>" );
 				}
 			},
 			error: function(error){
@@ -75,24 +95,43 @@ $(document).ready(function(){
 		},
 		success: function(result){
 			//$("#holder").empty();
-			for(var i = 0; i < result.length; i++) {
-    			//console.log(result[i].company_name);
-    			var color;
-    			if(i % 2 == 0) {
-    				color = "#192b3f";
-    			} else {
-    				color = "#122030";
-    			}
-    			var reviewDiv = document.createElement("div");
-    			reviewDiv.setAttribute("id", "review");
-    			reviewDiv.setAttribute("style", "background:" + color + ";");
-    			reviewDiv.innerHTML = "<img src = '../img/review user.png' height = '38' width = '38'><h3 id = 'title'><a>" +  result[i].company_name + "</a>: " + result[i].job_title +
-    			 " | " + result[i].salary + "<br>" + result[i].city + ", " + result[i].state + "<br>" + result[i].season + " | " + result[i].duration + "</h3><p>" + result[i].other_data + "</p>";
-    			document.getElementById("holder").appendChild(reviewDiv); 
-    			//$("#reviewHolder").find('tbody').append( "<tr><td>" + result[i].company_name +"</td><td>" + result[i].job_title +"</td><td>" + result[i].rating +"</td><td>" + result[i].state +"</td><td>" + result[i].city +"</td><td>" + result[i].salary +"</td><td>" + result[i].season +"</td><td>" + result[i].duration +"</td><td>"+ result[i].other_data +"</td></tr>" );
-
+			if(sessionStorage.getItem("admin") == "true") {
+				for(var i = 0; i < result.length; i++) {
+					if(!result[i].is_approved) {
+						var color = "red";
+		    			var reviewDiv = document.createElement("div");
+		    			reviewDiv.setAttribute("id", "review");
+		    			reviewDiv.setAttribute("style", "background:" + color + ";");
+		    			reviewDiv.innerHTML = "<img src = '../img/review user.png' height = '38' width = '38'><h3 id = 'title'><a>" +  result[i].company_name + "</a>: " + result[i].job_title +
+		    			 " | " + result[i].salary + "<br>" + result[i].city + ", " + result[i].state + "<br>" + result[i].season + " | " + result[i].duration + "</h3><p>" + result[i].other_data + "</p>";
+		    			document.getElementById("holder").appendChild(reviewDiv); 
+		    		}
+				}
 			}
 
+			var flip = true;
+			for(var i = 0; i < result.length; i++) {
+    			//console.log(result[i].company_name);
+
+    			var color;
+    			if(flip) {
+    				color = "#192b3f";
+    				flip = false;
+    			} else {
+    				color = "#122030";
+    				flip = true;
+    			}
+
+    			if(result[i].is_approved) {
+	    			var reviewDiv = document.createElement("div");
+	    			reviewDiv.setAttribute("id", "review");
+	    			reviewDiv.setAttribute("style", "background:" + color + ";");
+	    			reviewDiv.innerHTML = "<img src = '../img/review user.png' height = '38' width = '38'><h3 id = 'title'><a>" +  result[i].company_name + "</a>: " + result[i].job_title +
+	    			 " | " + result[i].salary + "<br>" + result[i].city + ", " + result[i].state + "<br>" + result[i].season + " | " + result[i].duration + "</h3><p>" + result[i].other_data + "</p>";
+	    			document.getElementById("holder").appendChild(reviewDiv); 
+	    		}
+    			//$("#reviewHolder").find('tbody').append( "<tr><td>" + result[i].company_name +"</td><td>" + result[i].job_title +"</td><td>" + result[i].rating +"</td><td>" + result[i].state +"</td><td>" + result[i].city +"</td><td>" + result[i].salary +"</td><td>" + result[i].season +"</td><td>" + result[i].duration +"</td><td>"+ result[i].other_data +"</td></tr>" );
+			}
 		},
 		error: function(error){
 			console.log("Error:"  + error);
