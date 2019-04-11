@@ -93,37 +93,59 @@ $(document).ready(function(){
 		else{
 			doll = "0";
 		}
-
-		//console.log($("#isOther").val());
-		var d = parseInt($("#dur").val());
-		//console.log($("#rev").val());
-		var r =parseInt($("#rev").val());
+		var data = {
+		    "format": "json",
+		    "addressdetails": 1,
+		    "q": $("#address").val() + " " + $("#city").val(),
+		    "limit": 1
+		};
+		var long;
+		var lat;
 		$.ajax({
-			url: 'http://localhost:8080/newReview',
-			type: "POST",
-			data:{
-				comp: ot,
-				address: $("#address").val(),
-				city: $("#city").val(),
-				state: $("#state").val(),
-				semester:$("#semester").val(),
-				dur: d,
-				types: tit,
-				pay: $("#pay").val(),
-				dollars: doll,
-				review: r,
-				textbox: $("#textbox").val()
+		  method: "GET",
+		  url: "https://nominatim.openstreetmap.org",
+		  data: data
+		})
+		.done(function( msg ) {
+		    //console.log( msg );
+		    console.log(msg[0].lon);
+		    console.log(msg[0].lat);
+		    long = parseFloat(msg[0].lon);
+			lat = parseFloat(msg[0].lat);
 
-			},
-			success: function(result){
 
-				console.log(result);
-				window.location.href="../html/Homepage.html";
+			var d = parseInt($("#dur").val());
+			//console.log($("#rev").val());
+			var r =parseInt($("#rev").val());
+			$.ajax({
+				url: 'http://localhost:8080/newReview',
+				type: "POST",
+				data:{
+					comp: ot,
+					address: $("#address").val(),
+					city: $("#city").val(),
+					state: $("#state").val(),
+					semester:$("#semester").val(),
+					dur: d,
+					types: tit,
+					pay: $("#pay").val(),
+					dollars: doll,
+					review: r,
+					textbox: $("#textbox").val(),
+					long: long,
+					lat: lat
 
-			},
-			error: function(error){
-				console.log("Error:"  + error);
-			}
+				},
+				success: function(result){
+
+					console.log(result);
+					window.location.href="../html/Homepage.html";
+
+				},
+				error: function(error){
+					console.log("Error:"  + error);
+				}
+			});
 		});
 		
 	});
