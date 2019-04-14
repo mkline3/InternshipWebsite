@@ -200,7 +200,8 @@
                   address: results[i].address,
                 });
 
-                vectorSource.addFeature(marker);
+                if(results[i].is_approved)
+                  vectorSource.addFeature(marker);
               }
 
               var iconStyle = new ol.style.Style({

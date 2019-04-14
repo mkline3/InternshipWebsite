@@ -1,5 +1,3 @@
-
-
 $(document).ready(function(){
 	//console.log($("#pay").val());
 	$("#filter").submit(function(){
@@ -22,12 +20,18 @@ $(document).ready(function(){
 				if(sessionStorage.getItem("admin") == "true") {
 					for(var i = 0; i < result.length; i++) {
 						if(!result[i].is_approved) {
+							if(results[i].salary == "paid") {
+								var salary = results[i].dollars;
+							} else {
+								var salary = results[i].salary;
+							}
 							var color = "red";
 			    			var reviewDiv = document.createElement("div");
 			    			reviewDiv.setAttribute("id", "review");
 			    			reviewDiv.setAttribute("style", "background:" + color + ";");
 			    			reviewDiv.innerHTML = "<img src = '../img/review user.png' height = '38' width = '38'><h3 id = 'title'><a>" +  result[i].company_name + "</a>: " + result[i].job_title +
-			    			 " | " + result[i].salary + "<br>" + result[i].city + ", " + result[i].state + "<br>" + result[i].season + " | " + result[i].duration + "</h3><p>" + result[i].other_data + "</p>";
+		    			 " | " + result[i].salary + "<br>" + result[i].city + ", " + result[i].state + "<br>" + result[i].season + " | " + result[i].duration + "</h3><p>" + result[i].other_data + 
+		    			 "</p><div id = 'AdminButton'><form id = 'ad' onsumbit = 'return false'><input type='hidden' id='reviewID' value ='" + result[i].review_id + "'><input type='button' value = '&#10004;'><input type='button' value='&#10008;'></form></div>";
 			    			document.getElementById("holder").appendChild(reviewDiv); 
 			    		}
 					}
@@ -46,12 +50,18 @@ $(document).ready(function(){
 	    				flip = true;
 	    			}
 
+	    			if(results[i].salary == "paid") {
+						var salary = results[i].dollars;
+					} else {
+						var salary = results[i].salary;
+					}
+
 	    			if(result[i].is_approved) {
 		    			var reviewDiv = document.createElement("div");
 		    			reviewDiv.setAttribute("id", "review");
 		    			reviewDiv.setAttribute("style", "background:" + color + ";");
 		    			reviewDiv.innerHTML = "<img src = '../img/review user.png' height = '38' width = '38'><h3 id = 'title'><a>" +  result[i].company_name + "</a>: " + result[i].job_title +
-		    			 " | " + result[i].salary + "<br>" + result[i].city + ", " + result[i].state + "<br>" + result[i].season + " | " + result[i].duration + "</h3><p>" + result[i].other_data + "</p>";
+		    			 " | " + salary + "<br>" + result[i].city + ", " + result[i].state + "<br>" + result[i].season + " | " + result[i].duration + "</h3><p>" + result[i].other_data + "</p>";
 		    			document.getElementById("holder").appendChild(reviewDiv); 
 		    		}
 	    			//$("#reviewHolder").find('tbody').append( "<tr><td>" + result[i].company_name +"</td><td>" + result[i].job_title +"</td><td>" + result[i].rating +"</td><td>" + result[i].state +"</td><td>" + result[i].city +"</td><td>" + result[i].salary +"</td><td>" + result[i].season +"</td><td>" + result[i].duration +"</td><td>"+ result[i].other_data +"</td></tr>" );
@@ -103,7 +113,8 @@ $(document).ready(function(){
 		    			reviewDiv.setAttribute("id", "review");
 		    			reviewDiv.setAttribute("style", "background:" + color + ";");
 		    			reviewDiv.innerHTML = "<img src = '../img/review user.png' height = '38' width = '38'><h3 id = 'title'><a>" +  result[i].company_name + "</a>: " + result[i].job_title +
-		    			 " | " + result[i].salary + "<br>" + result[i].city + ", " + result[i].state + "<br>" + result[i].season + " | " + result[i].duration + "</h3><p>" + result[i].other_data + "</p>";
+		    			 " | " + result[i].salary + "<br>" + result[i].city + ", " + result[i].state + "<br>" + result[i].season + " | " + result[i].duration + "</h3><p>" + result[i].other_data + 
+		    			 "</p><div id = 'AdminButton'><form id = 'ad' onsumbit = 'return false'><input type='hidden' id='reviewID' value ='" + result[i].review_id + "'><input type='button' value = '&#10004;'><input type='button' value='&#10008;'></form></div>";
 		    			document.getElementById("holder").appendChild(reviewDiv); 
 		    		}
 				}

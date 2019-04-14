@@ -204,7 +204,7 @@ app.delete('/delete-user', async (req, res) => {
 
 app.get('/map', async (req, res) => {
     try {
-        var results = await pool.query('select longitude, lattitude, company_name, city, address, state from reviews');
+        var results = await pool.query('select longitude, lattitude, company_name, city, address, state, is_approved from reviews');
         res.json(results.rows);
     }  catch(e) {
         console.log("error collecting map data", e);
