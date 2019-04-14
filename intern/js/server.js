@@ -97,15 +97,18 @@ app.post('/newReview', async (req, res) =>{
     var duration = req.body.dur; 
     var job_title = req.body.types; 
     var salary = req.body.pay;
+    var dollars = req.body.dollars;
     //console.log(duration);
     
     var rating = req.body.review;
     var Other_data = req.body.textbox;
+    var long = req.body.long;
+    var lat = req.body.lat;
     //console.log(rating);
     //var id_num = 5
     try {
-        var response = await pool.query('insert into reviews(company_name, address, city, state, season, duration, job_title, salary, rating, Other_data) values($1,$2,$3,$4,$5,$6,$7,$8,$9,$10)', 
-            [company, address, city, state, season, duration, job_title, salary, rating, Other_data]);
+        var response = await pool.query('insert into reviews(company_name, address, city, state, season, duration, job_title, salary, dollars, rating, Other_data, longitude, lattitude) values($1,$2,$3,$4,$5,$6,$7,$8,$9,$10, $11, $12, $13)', 
+            [company, address, city, state, season, duration, job_title, salary,dollars, rating, Other_data, long, lat]);
         res.json("it worked");
 
     } catch(e) {
@@ -131,21 +134,21 @@ app.post("/newLog", async(req,res)=>{
 app.get('/comp', async (req, res) =>{
 
     try{
-       comp = await pool.query("select DISTINCT company_name from reviews");
+       comp = await pool.query("select DISTINCT company_name from reviews where is_approved = TRUE");
        res.json(comp.rows);
     }
     catch(e){
-        console.log('Error running login', e);
+        console.log('Error running comp', e);
     }
 })
 app.get('/title', async (req, res) =>{
 
     try{
-       comp = await pool.query("select DISTINCT job_title from reviews");
+       comp = await pool.query("select DISTINCT job_title from reviews where is_approved = TRUE");
        res.json(comp.rows);
     }
     catch(e){
-        console.log('Error running login', e);
+        console.log('Error running title', e);
     }
 })
 app.get('/state', async (req, res) =>{
@@ -153,15 +156,15 @@ app.get('/state', async (req, res) =>{
     //console.log(name);
     try{
         if(name !=="All"){
-            comp = await pool.query("select DISTINCt state from reviews where company_name like $1",[name]);
+            comp = await pool.query("select DISTINCt state from reviews where company_name like $1 and is_approved = TRUE",[name]);
         }
         else{
-            comp = await pool.query("select DISTINCt state from reviews");
+            comp = await pool.query("select DISTINCt state from reviews where is_approved = TRUE");
         }
       res.json(comp.rows);
     }
     catch(e){
-        console.log('Error running login', e);
+        console.log('Error running state', e);
     }
 })
 app.get('/city', async (req, res) =>{
@@ -181,7 +184,7 @@ app.get('/city', async (req, res) =>{
       res.json(comp.rows);
     }
     catch(e){
-        console.log('Error running login', e);
+        console.log('Error running city', e);
     }
 })
 
@@ -204,7 +207,7 @@ app.delete('/delete-user', async (req, res) => {
 
 app.get('/map', async (req, res) => {
     try {
-        var results = await pool.query('select longitude, lattitude, company_name, city, address, state, is_approved from reviews');
+        var results = await pool.query('select longitude, lattitude, company_name, city, address, state from reviews WHERE is_approved');
         res.json(results.rows);
     }  catch(e) {
         console.log("error collecting map data", e);
