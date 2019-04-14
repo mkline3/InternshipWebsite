@@ -179,7 +179,7 @@
           var vectorSource = new ol.source.Vector({
           });
 
-      		var marker = new ol.Feature({
+      		/*var marker = new ol.Feature({
       			geometry: new ol.geom.Point(ol.proj.fromLonLat([-77.475, 38.302])),
       			name: 'Univerity of Mary Washington',
             city: 'Fredericksburg',
@@ -187,13 +187,14 @@
             address: '1301 College Ave',
       		});
 
-      		vectorSource.addFeature(marker);
+      		vectorSource.addFeature(marker);*/
 
           $.ajax({
             url: 'http://localhost:8080/map',
             type: "GET",
             success: function(results){
               for(var i = 0; i < results.length; i++) {
+                if(results[i].is_approved) {
                 var long = parseFloat(results[i].longitude);
                 var lat = parseFloat(results[i].lattitude);
                 var marker = new ol.Feature({
@@ -204,8 +205,8 @@
                   address: results[i].address,
                 });
 
-                if(results[i].is_approved)
-                  vectorSource.addFeature(marker);
+                vectorSource.addFeature(marker);
+              }
               }
 
               var iconStyle = new ol.style.Style({

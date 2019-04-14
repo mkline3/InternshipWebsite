@@ -5,9 +5,9 @@
 		<link rel="stylesheet" type="text/css" href="../css/newLogin.css">
 		<link rel="stylesheet" type="text/css" href="../css/App.css">
 		<link rel="stylesheet" type="text/css" href="../css/review.css">
-		<script type="text/javascript" src="js/materialize.min.js"></script>
+		<<script type="text/javascript" src="js/materialize.min.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-		
+
 	</head>
 
 <div class = "App-header">
@@ -202,5 +202,40 @@
 		</div>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script src="../js/review.js"></script>
+		<script type="text/javascript">
+			function acceptReview(button) {
+				$.ajax({
+					url: 'http://localhost:8080/approve-review',
+					type: "POST",
+					data:{
+						review_id: $(button).siblings("#reviewID").val(),
+					},
+					success: function(result){
+					},
+					error: function(error){
+						console.log("Error");
+						//alert($(button).siblings("#reviewID").val());				
+					}
+				});
+				window.location.href=window.location.href;
+			}
+
+			function deleteReview(button) {
+				$.ajax({
+					url: 'http://localhost:8080/delete-review',
+					type: "POST",
+					data:{
+						review_id: $(button).siblings("#reviewID").val(),
+					},
+					success: function(result){
+					},
+					error: function(error){
+						console.log("Error");
+						//alert($(button).siblings("#reviewID").val());				
+					}
+				});
+				window.location.href=window.location.href;
+			}
+		</script>
 	</body>
 </html>

@@ -225,13 +225,26 @@ app.get('/approval', async (req, res) =>{
 
 })
 
-app.delete('/delete-review', async (req, res) => {
-
+app.post('/delete-review', async (req, res) => {
+    var id = req.body.review_id;
+    try{
+        var results = await pool.query("DELETE FROM reviews WHERE review_id = $1", [id]);
+    }
+    catch(e){
+        console.log("could not delete review", e);
+    }
 
 })
 
 app.post('/approve-review', async (req, res) => {
-
+    var id = req.body.review_id;
+    try{
+        var results = await pool.query("UPDATE reviews SET is_approved = TRUE WHERE review_id = $1", [id]);
+        console.log("review " + id + " has been updated");
+    }
+    catch(e){
+        console.log("could not update review", e);
+    }
 
 })
 

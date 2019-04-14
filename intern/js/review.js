@@ -17,31 +17,18 @@ $(document).ready(function(){
 			},
 			success: function(result){
 				//$("#holder").empty();
-				if(sessionStorage.getItem("admin") == "true") {
-					for(var i = 0; i < result.length; i++) {
-						if(!result[i].is_approved) {
-							if(results[i].salary == "paid") {
-								var salary = results[i].dollars;
-							} else {
-								var salary = results[i].salary;
-							}
-							var color = "red";
-			    			var reviewDiv = document.createElement("div");
-			    			reviewDiv.setAttribute("id", "review");
-			    			reviewDiv.setAttribute("style", "background:" + color + ";");
-			    			reviewDiv.innerHTML = "<img src = '../img/review user.png' height = '38' width = '38'><h3 id = 'title'><a>" +  result[i].company_name + "</a>: " + result[i].job_title +
-		    			 " | " + result[i].salary + "<br>" + result[i].city + ", " + result[i].state + "<br>" + result[i].season + " | " + result[i].duration + "</h3><p>" + result[i].other_data + 
-		    			 "</p><div id = 'AdminButton'><form id = 'ad' onsumbit = 'return false'><input type='hidden' id='reviewID' value ='" + result[i].review_id + "'><input type='button' value = '&#10004;'><input type='button' value='&#10008;'></form></div>";
-			    			document.getElementById("holder").appendChild(reviewDiv); 
-			    		}
-					}
-				}
-
 				var flip = true;
 				for(var i = 0; i < result.length; i++) {
 	    			//console.log(result[i].company_name);
 
-	    			var color;
+	    			if(result[i].salary == "paid") {
+						var salary = result[i].dollars;
+					} else {
+						var salary = result[i].salary;
+					}
+
+	    			if(result[i].is_approved) {
+	    				var color;
 	    			if(flip) {
 	    				color = "#192b3f";
 	    				flip = false;
@@ -50,13 +37,6 @@ $(document).ready(function(){
 	    				flip = true;
 	    			}
 
-	    			if(results[i].salary == "paid") {
-						var salary = results[i].dollars;
-					} else {
-						var salary = results[i].salary;
-					}
-
-	    			if(result[i].is_approved) {
 		    			var reviewDiv = document.createElement("div");
 		    			reviewDiv.setAttribute("id", "review");
 		    			reviewDiv.setAttribute("style", "background:" + color + ";");
@@ -71,7 +51,39 @@ $(document).ready(function(){
 				console.log("Error:"  + error);
 			}
 		});
+
+		$.ajax({
+			url: 'http://localhost:8080/approval',
+			type: "GET",
+			success: function(result){
+				console.log(result);
+				if(sessionStorage.getItem("admin") == "true") {
+						for(var i = 0; i < result.length; i++) {
+								if(result[i].salary == "paid") {
+									var salary = result[i].dollars;
+								} else {
+									var salary = result[i].salary;
+								}
+								var color = "red";
+				    			var reviewDiv = document.createElement("div");
+				    			reviewDiv.setAttribute("id", "review");
+				    			reviewDiv.setAttribute("style", "background:" + color + ";");
+				    			reviewDiv.innerHTML = "<img src = '../img/review user.png' height = '38' width = '38'><h3 id = 'title'><a>" +  result[i].company_name + "</a>: " + result[i].job_title +
+			    			 	" | " + result[i].salary + "<br>" + result[i].city + ", " + result[i].state + "<br>" + result[i].season + " | " + result[i].duration + "</h3><p>" + result[i].other_data + 
+			    				"</p><div id = 'AdminButton'><form id = 'ad' onsumbit = 'return false'><input type='hidden' id='reviewID' value ='" + result[i].review_id + "'><input type='button' id = 'accept' value = '&#10004;' onclick = 'acceptReview(this)'><input type='button' id = 'reject' value='&#10008;' onclick = 'deleteReview(this)'></form></div>";
+				    			document.getElementById("holder").appendChild(reviewDiv);
+						}
+				}
+
+
+			},
+			error: function(error){
+				console.log("Error:"  + error);
+			}
+		});
+
 	});
+
 	var cn;
 	var st;
 	var cy;
@@ -93,6 +105,36 @@ $(document).ready(function(){
 	}
 
 	$.ajax({
+			url: 'http://localhost:8080/approval',
+			type: "GET",
+			success: function(result){
+				console.log(result);
+				if(sessionStorage.getItem("admin") == "true") {
+						for(var i = 0; i < result.length; i++) {
+								if(result[i].salary == "paid") {
+									var salary = result[i].dollars;
+								} else {
+									var salary = result[i].salary;
+								}
+								var color = "red";
+				    			var reviewDiv = document.createElement("div");
+				    			reviewDiv.setAttribute("id", "review");
+				    			reviewDiv.setAttribute("style", "background:" + color + ";");
+				    			reviewDiv.innerHTML = "<img src = '../img/review user.png' height = '38' width = '38'><h3 id = 'title'><a>" +  result[i].company_name + "</a>: " + result[i].job_title +
+			    			 	" | " + result[i].salary + "<br>" + result[i].city + ", " + result[i].state + "<br>" + result[i].season + " | " + result[i].duration + "</h3><p>" + result[i].other_data + 
+			    				"</p><div id = 'AdminButton'><form id = 'ad' onsumbit = 'return false'><input type='hidden' id='reviewID' value ='" + result[i].review_id + "'><input type='button' id = 'accept' value = '&#10004;' onclick = 'acceptReview(this)'><input type='button' id = 'reject' value='&#10008;' onclick = 'deleteReview(this)'></form></div>";
+				    			document.getElementById("holder").appendChild(reviewDiv); 
+						}
+				}
+
+
+			},
+			error: function(error){
+				console.log("Error:"  + error);
+			}
+		});
+
+	$.ajax({
 		url: 'http://localhost:8080/review',
 		type: "GET",
 		data:{
@@ -105,40 +147,30 @@ $(document).ready(function(){
 		},
 		success: function(result){
 			//$("#holder").empty();
-			if(sessionStorage.getItem("admin") == "true") {
-				for(var i = 0; i < result.length; i++) {
-					if(!result[i].is_approved) {
-						var color = "red";
-		    			var reviewDiv = document.createElement("div");
-		    			reviewDiv.setAttribute("id", "review");
-		    			reviewDiv.setAttribute("style", "background:" + color + ";");
-		    			reviewDiv.innerHTML = "<img src = '../img/review user.png' height = '38' width = '38'><h3 id = 'title'><a>" +  result[i].company_name + "</a>: " + result[i].job_title +
-		    			 " | " + result[i].salary + "<br>" + result[i].city + ", " + result[i].state + "<br>" + result[i].season + " | " + result[i].duration + "</h3><p>" + result[i].other_data + 
-		    			 "</p><div id = 'AdminButton'><form id = 'ad' onsumbit = 'return false'><input type='hidden' id='reviewID' value ='" + result[i].review_id + "'><input type='button' value = '&#10004;'><input type='button' value='&#10008;'></form></div>";
-		    			document.getElementById("holder").appendChild(reviewDiv); 
-		    		}
-				}
-			}
-
 			var flip = true;
 			for(var i = 0; i < result.length; i++) {
     			//console.log(result[i].company_name);
-
-    			var color;
-    			if(flip) {
-    				color = "#192b3f";
-    				flip = false;
-    			} else {
-    				color = "#122030";
-    				flip = true;
-    			}
-
     			if(result[i].is_approved) {
+    				var color;
+	    			if(flip) {
+	    				color = "#192b3f";
+	    				flip = false;
+	    			} else {
+	    				color = "#122030";
+	    				flip = true;
+	    			}
+
+	    			if(result[i].salary == "paid") {
+						var salary = result[i].dollars;
+					} else {
+						var salary = result[i].salary;
+					}
+
 	    			var reviewDiv = document.createElement("div");
 	    			reviewDiv.setAttribute("id", "review");
 	    			reviewDiv.setAttribute("style", "background:" + color + ";");
 	    			reviewDiv.innerHTML = "<img src = '../img/review user.png' height = '38' width = '38'><h3 id = 'title'><a>" +  result[i].company_name + "</a>: " + result[i].job_title +
-	    			 " | " + result[i].salary + "<br>" + result[i].city + ", " + result[i].state + "<br>" + result[i].season + " | " + result[i].duration + "</h3><p>" + result[i].other_data + "</p>";
+	    			 " | " + salary + "<br>" + result[i].city + ", " + result[i].state + "<br>" + result[i].season + " | " + result[i].duration + "</h3><p>" + result[i].other_data + "</p>";
 	    			document.getElementById("holder").appendChild(reviewDiv); 
 	    		}
     			//$("#reviewHolder").find('tbody').append( "<tr><td>" + result[i].company_name +"</td><td>" + result[i].job_title +"</td><td>" + result[i].rating +"</td><td>" + result[i].state +"</td><td>" + result[i].city +"</td><td>" + result[i].salary +"</td><td>" + result[i].season +"</td><td>" + result[i].duration +"</td><td>"+ result[i].other_data +"</td></tr>" );
@@ -283,29 +315,6 @@ $(document).ready(function(){
 
 	});
 
-	if(sessionStorage.getItem("admin") === true){
-		$("#approval").show();
-		$.ajax({
-		url: 'http://localhost:8080/approval',
-		type: "GET",
-		success: function(result){
-			console.log(result);
-			for(var i = 0; i < result.length; i++) {
-    			//console.log(result[i].company_name);
-    			$("#approvalFolder").find('tbody').append( "<tr><td>" + result[i].company_name +"</td><td>" + result[i].job_title +"</td><td>" + result[i].rating +"</td><td>" + result[i].state +"</td><td>" + result[i].city +"</td><td>" + result[i].salary +"</td><td>" + result[i].season +"</td><td>" + result[i].duration +"</td><td>"+ result[i].other_data +"</td></tr>" );
-
-			}
-
-		},
-		error: function(error){
-			console.log("Error:"  + error);
-		}
-	});
-
-	}
-	else{
-		$("#approval").hide();
-	}
 
 });
 //?name=#1&state=#2&city=#3&pay=#4&order=#5
