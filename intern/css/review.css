@@ -20,9 +20,9 @@ p {
 #holder{
 	position: relative;
 	color:silver;
-	width:85%;
+	width:65%;
 	height:100%;
-	margin-left: 14vw;
+	margin-left: 15vw;
 	background-color:#192b3f;
 	border-radius:20px 20px 20px 20px;
 	border-right-color: #34587f;
@@ -37,8 +37,8 @@ p {
 }
 
 #filter {
-	width: 20%;
-	height: 65%;
+	width: 16%;
+	height: 58%;
 	border-color:gray;
 	border-radius: 15px;
 	border-style:outset;
@@ -75,13 +75,14 @@ p {
   	padding-top: 10vh;
   	padding-bottom: 5vh;
   	margin: auto;
-  	height: 70vh;
-  	width: 65vw;
+  	height: 80vh;
+  	width: 85vw;
   	font-size: calc(10px + 1vmin);
 }
 
 #review {
 	font-family: Arial, Helvetica, sans-serif;
+	background-image: linear-gradient(#f4f4f4,#bfbfbf);
 	position: relative;
 	padding-top: 0;
 	margin-top: -1vh;
@@ -94,12 +95,12 @@ p {
 #review p {
 	padding-left: 65px;
 	font-size: 16px;
-	color: #f4f4f4;
+	color: #00305e;
 	text-align: left;
 }
 
 #review #title{
-	color: white;
+	color: #00305e;
 	position: relative;
 	padding-left: 65px;
 	padding-right: 65px;
@@ -147,6 +148,16 @@ p {
 	bottom: 8px;
 	right: 0;
 	float: right;
+}
+
+#starDiv { 
+	float: right;
+ }
+
+#starDiv #star {
+	float: right;
+	padding-left: 1px;
+	padding-right: 1px;
 }
 
 ::-webkit-scrollbar {

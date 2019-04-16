@@ -174,7 +174,7 @@
       		});
 
       		//marker layer
-      		var markerNum = 0;
+      		//var markerNum = 0;
 
           var vectorSource = new ol.source.Vector({
           });
@@ -194,7 +194,6 @@
             type: "GET",
             success: function(results){
               for(var i = 0; i < results.length; i++) {
-                if(results[i].is_approved) {
                 var long = parseFloat(results[i].longitude);
                 var lat = parseFloat(results[i].lattitude);
                 var marker = new ol.Feature({
@@ -206,7 +205,6 @@
                 });
 
                 vectorSource.addFeature(marker);
-              }
               }
 
               var iconStyle = new ol.style.Style({

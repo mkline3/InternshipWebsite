@@ -17,10 +17,8 @@ $(document).ready(function(){
 			},
 			success: function(result){
 				//$("#holder").empty();
-				var flip = true;
 				for(var i = 0; i < result.length; i++) {
 	    			//console.log(result[i].company_name);
-
 	    			if(result[i].salary == "paid") {
 						var salary = result[i].dollars;
 					} else {
@@ -28,19 +26,9 @@ $(document).ready(function(){
 					}
 
 	    			if(result[i].is_approved) {
-	    				var color;
-	    			if(flip) {
-	    				color = "#192b3f";
-	    				flip = false;
-	    			} else {
-	    				color = "#122030";
-	    				flip = true;
-	    			}
-
 		    			var reviewDiv = document.createElement("div");
 		    			reviewDiv.setAttribute("id", "review");
-		    			reviewDiv.setAttribute("style", "background:" + color + ";");
-		    			reviewDiv.innerHTML = "<img src = '../img/review user.png' height = '38' width = '38'><h3 id = 'title'><a>" +  result[i].company_name + "</a>: " + result[i].job_title +
+		    			reviewDiv.innerHTML = "<img src = '../img/review user.png' height = '38' width = '38'><h3 id = 'title'><a>" +  result[i].company_name + "</a>: " + result[i].job_title + reviewStars(result[i].rating) +
 		    			 " | " + salary + "<br>" + result[i].city + ", " + result[i].state + "<br>" + result[i].season + " | " + result[i].duration + "</h3><p>" + result[i].other_data + "</p>";
 		    			document.getElementById("holder").appendChild(reviewDiv); 
 		    		}
@@ -147,18 +135,9 @@ $(document).ready(function(){
 		},
 		success: function(result){
 			//$("#holder").empty();
-			var flip = true;
 			for(var i = 0; i < result.length; i++) {
     			//console.log(result[i].company_name);
     			if(result[i].is_approved) {
-    				var color;
-	    			if(flip) {
-	    				color = "#192b3f";
-	    				flip = false;
-	    			} else {
-	    				color = "#122030";
-	    				flip = true;
-	    			}
 
 	    			if(result[i].salary == "paid") {
 						var salary = result[i].dollars;
@@ -168,8 +147,7 @@ $(document).ready(function(){
 
 	    			var reviewDiv = document.createElement("div");
 	    			reviewDiv.setAttribute("id", "review");
-	    			reviewDiv.setAttribute("style", "background:" + color + ";");
-	    			reviewDiv.innerHTML = "<img src = '../img/review user.png' height = '38' width = '38'><h3 id = 'title'><a>" +  result[i].company_name + "</a>: " + result[i].job_title +
+	    			reviewDiv.innerHTML = "<img src = '../img/review user.png' height = '38' width = '38'><h3 id = 'title'><a>" +  result[i].company_name + "</a>: " + result[i].job_title + reviewStars(result[i].rating) +
 	    			 " | " + salary + "<br>" + result[i].city + ", " + result[i].state + "<br>" + result[i].season + " | " + result[i].duration + "</h3><p>" + result[i].other_data + "</p>";
 	    			document.getElementById("holder").appendChild(reviewDiv); 
 	    		}
@@ -315,6 +293,16 @@ $(document).ready(function(){
 
 	});
 
-
+	function reviewStars(stars) {
+		var starDiv = "<div id = 'starDiv'>";
+		for(var i = 0; i < (5 - stars); i++) {
+			starDiv += "<img id = 'star' src = '../img/rating.png' width = '15' height = '15'>";
+		}
+		for(var i = 0; i < stars; i++) {
+			starDiv += "<img id = 'star' src = '../img/ratingA.png' width = '15' height = '15'>";
+		}
+		starDiv += "</div>"
+		return starDiv;
+	}
 });
 //?name=#1&state=#2&city=#3&pay=#4&order=#5
