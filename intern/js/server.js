@@ -279,9 +279,10 @@ app.post('/approve-review', async (req, res) => {
 })
 
 app.get('/edit-review', async (req, res) =>{
-    var id = req.query.review_id;
+    var id = req.body.review_id;
+    
     try{
-        var results = await pool.query("select * from reviews where review_id LIKE $1", [id]);
+        var results = await pool.query("select * from reviews where review_id = $1", [id]);
         res.json(results.rows);
     }
     catch(e){

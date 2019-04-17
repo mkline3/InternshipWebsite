@@ -58,7 +58,7 @@ $(document).ready(function(){
 				    			reviewDiv.setAttribute("style", "background:" + color + ";");
 				    			reviewDiv.innerHTML = "<img src = '../img/review user.png' height = '38' width = '38'><h3 id = 'title'><a>" +  result[i].company_name + "</a>: " + result[i].job_title +
 			    			 	" | " + result[i].salary + "<br>" + result[i].city + ", " + result[i].state + "<br>" + result[i].season + " | " + result[i].duration + "</h3><p>" + result[i].other_data + 
-			    				"</p><div id = 'AdminButton'><form id = 'ad' onsumbit = 'return false'><input type='hidden' id='reviewID' value ='" + result[i].review_id + "'><input type='button' id = 'accept' value = '&#10004;' onclick = 'acceptReview(this)'><input type='button' id = 'reject' value='&#10008;' onclick = 'deleteReview(this)'></form></div>";
+			    				"</p><div id = 'AdminButton'><form id = 'ad' onsumbit = 'return false'><input type='hidden' id='reviewID' value ='" + result[i].review_id + "'><input type='button' id = 'accept' value = '&#10004;' onclick = 'acceptReview(this)'><input type='button' id = 'reject' value='&#10008;' onclick = 'deleteReview(this)'><input type='button' id = 'edit' value='&#9881;' onclick = 'editReview(this)'></form></div>";
 				    			document.getElementById("holder").appendChild(reviewDiv);
 						}
 				}
@@ -110,7 +110,7 @@ $(document).ready(function(){
 				    			reviewDiv.setAttribute("style", "background:" + color + ";");
 				    			reviewDiv.innerHTML = "<img src = '../img/review user.png' height = '38' width = '38'><h3 id = 'title'><a>" +  result[i].company_name + "</a>: " + result[i].job_title +
 			    			 	" | " + result[i].salary + "<br>" + result[i].city + ", " + result[i].state + "<br>" + result[i].season + " | " + result[i].duration + "</h3><p>" + result[i].other_data + 
-			    				"</p><div id = 'AdminButton'><form id = 'ad' onsumbit = 'return false'><input type='hidden' id='reviewID' value ='" + result[i].review_id + "'><input type='button' id = 'accept' value = '&#10004;' onclick = 'acceptReview(this)'><input type='button' id = 'reject' value='&#10008;' onclick = 'deleteReview(this)'></form></div>";
+			    				"</p><div id = 'AdminButton'><form id = 'ad' onsumbit = 'return false'><input type='hidden' id='reviewID' value ='" + result[i].review_id + "'><input type='button' id = 'accept' value = '&#10004;' onclick = 'acceptReview(this)'><input type='button' id = 'reject' value='&#10008;' onclick = 'deleteReview(this)'><input type='button' id = 'edit' value='&#9881;' onclick = 'editReview(this)'></form></div>";
 				    			document.getElementById("holder").appendChild(reviewDiv); 
 						}
 				}
@@ -305,35 +305,6 @@ $(document).ready(function(){
 		return starDiv;
 	}
 
-	function edit(button){
-
-		$.ajax({
-					url: 'http://localhost:8080/edit-review',
-					type: "GET",
-					data:{
-						review_id: $(button).siblings("#reviewID").val(),
-					},
-					success: function(results){
-						$("#editRevID").val(results.Review_ID);
-						$("#editCom").val(results.company_name);
-						$("#editAddress").val(results.address);
-						$("#editCity").val(results.city);
-						$("#editState").val(results.state);
-						$("#editSemester").val(results.season);
-						$("#editDur").val(results.duration);
-						$("#editType").val(results.job_title);
-						$("#editPay").val(results.salary);
-						$("#editRate").val(results.dollars);
-						$("#editRev").val(results.rating);
-						$("#editTextbox").val(results.other_data);
-					},
-					error: function(error){
-						console.log("Error");
-						//alert($(button).siblings("#reviewID").val());				
-					}
-				});
-
-	}
 	$("#editReview").submit(function(){
 		
 		var data = {

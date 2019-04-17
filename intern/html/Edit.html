@@ -4,6 +4,8 @@
 		<title>Make Review</title>
 		<link rel="stylesheet" type="text/css" href="../css/edit.css">
 		<link rel="stylesheet" href="..\css\App.css" type="text/css">
+		<!--jquery script-->
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	</head>
 	
 	<div class = "App-header">
@@ -130,8 +132,38 @@
 
 		</form>
 		</div>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-		<script src="../js/review.js"> </script>
+		<!--<script src="../js/review.js"> </script>-->
+		<script type="text/javascript">
+			var review_id = 2;
+			alert(review_id);
+			$.ajax({
+				url: 'http://localhost:8080/edit-review',
+				type: "GET",
+				data:{
+					review_id: review_id,
+				},
+				success: function(results){
+					console.log(results.company_name);
+					$("#editRevID").val(results.Review_ID);
+					$("#editCom").val(results.company_name);
+					$("#editAddress").val(results.address);
+					$("#editCity").val(results.city);
+					$("#editState").val(results.state);
+					$("#editSemester").val(results.season);
+					$("#editDur").val(results.duration);
+					$("#editType").val(results.job_title);
+					$("#editPay").val(results.salary);
+					$("#editRate").val(results.dollars);
+					$("#editRev").val(results.rating);
+					$("#editTextbox").val(results.other_data);
+				},
+				error: function(error){
+					console.log("Error");
+					//alert($(button).siblings("#reviewID").val());				
+						}
+			});
+			sessionStorage.removeItem("reviewID");
+		</script>
 	</body>
 
 </html>
