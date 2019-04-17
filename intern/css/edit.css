@@ -1,0 +1,81 @@
+ .signin body{
+    background-color: #294664;
+    text-align:center;
+  }
+
+  #emailField form{
+    font-size:15px;
+    border-color:gray;
+    border-radius: 15px 15px 15px 15px;
+    border-style:outset;
+    box-shadow: inset 0 -1px 0 0 navy, inset 0 1px 0 0 navy, 0 1px 0 0 navy, 0 -1px 0 0 navy;
+    margin-bottom: 1px;
+    background: silver;
+    
+    display:inline-block;
+  }
+
+  #reviewDiv {
+    font-family: Arial, Helvetica, sans-serif;
+    position: relative;
+    padding-bottom: 5vh;
+    width: 65vw;
+    height: 102vh;
+    border-color:gray;
+    border-radius: 15px;
+    border-style:outset;
+    margin: auto;
+    margin-top: 12vh;
+    background: silver;
+    text-align: center;
+    background-image: linear-gradient(#f4f4f4,#cccccc);
+    box-shadow: 0px 16px 16px #00305e;
+  }
+
+  #reviewDiv select{
+    border-radius: 10px;
+    height: 22px;
+    width: 30%;
+    background: silver;
+    margin-bottom: 10px;
+    box-shadow: 0px 1px 1px #8c8c8c;
+    color: #00305e;
+  }
+
+  #reviewDiv input[type="text"]{
+    width:40%;
+    height: 20px;
+    font-size:14px;
+    background-color: #8c8c8c;
+    border-radius: 10px;
+    color: #00305e;
+    text-align: center;
+    border-right-color: #f4f4f4;
+    border-bottom-color: #f4f4f4;
+    border-top-color: #e9eaeb;
+    border-left-color: #e9eaeb;
+  }
+
+  #reviewDiv input[type="text"]::placeholder {
+    color: black;
+    opacity: 0.8;
+  }
+
+  #company {
+        margin-bottom: 10px;
+  }
+
+#Other{
+    width:20%;
+  }
+
+  #textbox {
+    width: 70%;
+    height: 24vh;
+    border-radius: 10px;
+  }
+
+  input[type="submit"]{
+    font-size:15px;
+    border-radius:25%;
+  }

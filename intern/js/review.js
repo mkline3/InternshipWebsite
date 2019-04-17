@@ -304,5 +304,106 @@ $(document).ready(function(){
 		starDiv += "</div>"
 		return starDiv;
 	}
+
+	function edit(button){
+
+		$.ajax({
+					url: 'http://localhost:8080/edit-review',
+					type: "GET",
+					data:{
+						review_id: $(button).siblings("#reviewID").val(),
+					},
+					success: function(results){
+						$("#editRevID").val(results.Review_ID);
+						$("#editCom").val(results.company_name);
+						$("#editAddress").val(results.address);
+						$("#editCity").val(results.city);
+						$("#editState").val(results.state);
+						$("#editSemester").val(results.season);
+						$("#editDur").val(results.duration);
+						$("#editType").val(results.job_title);
+						$("#editPay").val(results.salary);
+						$("#editRate").val(results.dollars);
+						$("#editRev").val(results.rating);
+						$("#editTextbox").val(results.other_data);
+					},
+					error: function(error){
+						console.log("Error");
+						//alert($(button).siblings("#reviewID").val());				
+					}
+				});
+
+	}
+	$("#editReview").submit(function(){
+		
+		var data = {
+		    "format": "json",
+		    "addressdetails": 1,
+		    "q": $("#editAddress").val() + " " + $("#editCity").val(),
+		    "limit": 1
+		};
+		var long;
+		var lat;
+		$.ajax({
+		  method: "GET",
+		  url: "https://nominatim.openstreetmap.org",
+		  data: data
+		})
+		.done(function( msg ) {
+		    //console.log( msg );
+		    console.log(msg[0].lon);
+		    console.log(msg[0].lat);
+		    long = parseFloat(msg[0].lon);
+			lat = parseFloat(msg[0].lat);
+
+
+			var d = parseInt($("#editDur").val());
+			//console.log($("#rev").val());
+			var r =parseInt($("#editRev").val());
+			$.ajax({
+				url: 'http://localhost:8080/editReview',
+				type: "POST",
+				data:{
+					comp: $("#editCom").val(),
+					address: $("#editAddress").val(),
+					city: $("#editCity").val(),
+					state: $("#editState").val(),
+					semester:$("#editSemester").val(),
+					dur: d,
+					types: $("#editType").val(),
+					pay: $("#editPay").val(),
+					dollars: $("#editRate").val(),
+					review: r,
+					textbox: $("#editTextbox").val(),
+					long: long,
+					lat: lat
+
+				},
+				success: function(result){
+
+					console.log(result);
+					$.ajax({
+						url: 'http://localhost:8080/delete-review',
+						type: "POST",
+						data:{
+							review_id: $("#editRevID").val(),
+						},
+						success: function(result){
+						},
+						error: function(error){
+							console.log("Error");
+							//alert($(button).siblings("#reviewID").val());				
+						}
+					});
+					window.location.href="../html/Homepage.html";
+
+				},
+				error: function(error){
+					console.log("Error:"  + error);
+				}
+			});
+		});
+	});
+
 });
 //?name=#1&state=#2&city=#3&pay=#4&order=#5

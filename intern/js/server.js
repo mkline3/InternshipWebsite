@@ -117,6 +117,36 @@ app.post('/newReview', async (req, res) =>{
 
 })
 
+app.post('/editReview', async (req, res) =>{
+    var company = req.body.comp;
+    var address = req.body.address;
+    var city = req.body.city;
+    var state = req.body.state;
+
+    var season = req.body.semester;
+    var duration = req.body.dur; 
+    var job_title = req.body.types; 
+    var salary = req.body.pay;
+    var dollars = req.body.dollars;
+    //console.log(duration);
+    
+    var rating = req.body.review;
+    var Other_data = req.body.textbox;
+    var long = req.body.long;
+    var lat = req.body.lat;
+    //console.log(rating);
+    //var id_num = 5
+    try {
+        var response = await pool.query('insert into reviews(company_name, address, city, state, season, duration, job_title, salary, dollars, rating, Other_data, longitude, lattitude, is_approved) values($1,$2,$3,$4,$5,$6,$7,$8,$9,$10, $11, $12, $13, TRUE)', 
+            [company, address, city, state, season, duration, job_title, salary,dollars, rating, Other_data, long, lat]);
+        res.json("it worked");
+
+    } catch(e) {
+        console.log('Error running post', e);
+    }
+
+})
+
 app.post("/newLog", async(req,res)=>{
     var username = req.body.username;
     var email = req.body.email;
@@ -244,6 +274,18 @@ app.post('/approve-review', async (req, res) => {
     }
     catch(e){
         console.log("could not update review", e);
+    }
+
+})
+
+app.get('/edit-review', async (req, res) =>{
+    var id = req.query.review_id;
+    try{
+        var results = await pool.query("select * from reviews where review_id LIKE $1", [id]);
+        res.json(results.rows);
+    }
+    catch(e){
+        console.log("error getting review", e);
     }
 
 })

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+		<title>Make Review</title>
+		<link rel="stylesheet" type="text/css" href="../css/edit.css">
+		<link rel="stylesheet" href="..\css\App.css" type="text/css">
+	</head>
+	
+	<div class = "App-header">
+
+		<div class = "nav">
+			<a href="Homepage.html"><img src = "..\img\umw.png" id = "logo"></a>
+			<div class = "Secondary-nav" id = 'secondary'>
+				<script type="text/javascript">
+				if (sessionStorage.getItem("user") == null) {
+					/*document.getElementById("secondary").innerHTML = '<a href="newLogin.html" target="popup" onclick="window.open(' + "'newLogin.html', 'popup','width=400,height=300,toolbar=No,location=No,scrollbars=no,status=No,resizable=no,fullscreen=No')" + '; return false;"><img src = "../img/signIn.png" height = "20" width = "20"><br/>Sign-Up</a>';*/
+					document.getElementById("secondary").innerHTML = '<a id="signinFocus"><img src = "../img/signIn.png" height = "20" width = "20"><br/>Sign-Up</a><a href="review.html"><img src = "../img/star.png" height = "20" width = "40"><br/>Reviews</a>';
+
+					$(document).ready(function(){
+    					$("#signinFocus").click(function(){
+        					$('#SigninDiv').show(function(){
+        						document.body.addEventListener('click', closer, false);
+        					});
+    					});
+    					function closer(e) {
+    						var id = $(e.target).closest('.signin').attr("id");
+    						if(id != "SigninDiv"){
+    							//alert(event.target.id);
+    							document.body.removeEventListener('click', closer, false);
+  								$('#SigninDiv').hide();
+  							}
+						}
+					});
+				} else {
+					document.getElementById("secondary").innerHTML = '<a href="newReview.html"><img src = "../img/addReview.png" height = "20" width = "20"><br/>Add a Review</a><a href="review.html"><img src = "../img/star.png" height = "20" width = "40"><br/>Reviews</a>';
+				}
+			</script>
+			</div>
+		</div>
+		<div id = 'login' class="login-container">
+			<script type="text/javascript">
+				if (sessionStorage.getItem("user") == null) {
+					document.getElementById("login").innerHTML = '<form id="Login" onSubmit="loginF()"><input type="text" placeholder="Email Address" id="username"><input type="password" placeholder="Password" id="psw"><button type="submit">Login</button></form>';
+				} else {
+					const user = sessionStorage.getItem("user");
+          document.getElementById("login").innerHTML = '<p>'+ user +' | <a onclick = "logout()">Logout</a></p>';
+				}
+			</script>
+          <script>
+            function logout(){
+              alert('You have successfully logged out');
+              sessionStorage.clear();
+              document.location.replace("Homepage.html");
+            }
+    			</script>
+  			</div>
+	</div>
+
+	<div id = 'SigninDiv' class = "signin">
+		<body>
+		<form id="emailField" onsubmit="return false">
+			<div class="box">
+				<h1>Create Login</h1>
+				<input type="text" id = "email" placeholder="example@mail.umw.edu">
+				<input type="submit" id="confirm" value="confirm">
+				<br>
+				<input type="text" id = "ec" placeholder="enter confirmation code">
+				<br>
+				<input type="password" id = "p1" placeholder="password">
+				<br>
+				<input type="password" id = "p2" placeholder="retype password">
+				<br><br>
+				<input type="submit" id="submit" value="submit">				
+			</div>
+		</form>
+		<script src="../js/newLogin.js"></script>
+	</body>
+	</div>
+
+	<body>
+		<div id="reviewDiv">
+		<form id="editReview" onsubmit="return false">
+			<div id="review">
+				<input type="hidden" id="editRevID">
+				<div id="Company">
+					<h2> Company</h2>
+					<input type="text" id="editCom" disabled>
+					<div id="company">
+						<input type="text" id = "editAddress"  >
+					</div>
+					<div id="company">
+						<input type="text" id = "editCity" >
+					</div>
+					<div>
+						<input type="select" id="editState" disabled>
+					</div>
+
+				<div id="details">
+					<h3>Internship Details</h3>
+					<div>
+						<input type="text" id="editSemester" disabled>
+					</div>
+				</div>
+
+					<div>
+						<input type="text" id="editDur" disabled>					
+					</div>
+
+					<div>
+						<input type="text" id="editType" >
+					</div>
+
+					<div>
+						<input type="text" id="editPay" disabled>
+					</div>
+
+					<div id="rate">
+						<input type="text" id="editRate" disabled>
+					</div>
+
+				<div id="extras">
+					<h3>Rating</h3>
+					<input type="text" id="editRev" disabled>
+					<h3>Comments</h3>
+					<textarea rows="10" cols="100" id="editTextbox" form="usrform" ></textarea>
+				</div>
+
+				<input type="submit" id="editSubmit" value="submit">
+			</div>
+
+		</form>
+		</div>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="../js/review.js"> </script>
+	</body>
+
+</html>
