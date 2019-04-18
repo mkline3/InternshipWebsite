@@ -33,6 +33,7 @@ insert into reviews(company_name, job_title, salary, start_date, end_date, ratin
     ('Geico', 'Software Engineer intern', 'paid', '2018-06-01', '2018-08-01', 5, 'summer', 12, '123 Real street', 'Fredericksburg', 'Virginia', 13.47530, 28.6869538, TRUE, '2', 'N/A'),
     ('Amazon', 'Data science intern', 'paid', '2017-06-01', '2018-08-05', 1, 'summer', 12, '456 street', 'Herndon', 'Virginia', 67.1877382, 30.73394957, TRUE, '3', 'N/A'),
     ('aylmao', 'intern', 'paid', '2019-06-01', '2019-08-05', 4, 'summer', 12, '456 street', 'Baltimore', 'Maryland', 1.123232, 23.1232453, TRUE, '4','N/A');
+    ('CACI', 'Systems Software Engineer', 'paid', '2019-01-22', '2019-12-30', 4, 'winter', 12, '16480 Commerce Drive', 'King George', 'Virginia', -77.053514, 38.346100, TRUE, '$22', 'Great work environment.')
 
 insert into users values 
     ('bzamojd2', 'bzamojd2@mail.umw.edu', 'password', FALSE),
