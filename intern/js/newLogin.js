@@ -1,6 +1,6 @@
 
 //let t = 0;
-
+let ran = Math.random().toString(36).substring(7);
 $(document).ready(function(){
 	//alert(($"#ec").val());
 	//if(t===0){
@@ -12,7 +12,9 @@ $(document).ready(function(){
 	$("#confirm").click(function(){
 		if($("#email").val().includes("@mail.umw.edu")
 			||  $("#email").val().includes("@umw.edu") ){
-			alert("Confirmation sent to: "+ $("#email").val());
+			//alert("Confirmation sent to: "+ $("#email").val());
+			
+			alert("Confirmation code: " + ran);
 			$("#ec").show();
 			$("#p1").show();
 			$("#p2").show();
@@ -55,7 +57,7 @@ $(document).ready(function(){
 
 
 
-		if($("#ec").val() !== "AbaC3"){
+		if($("#ec").val() !== ran){
 			alert("You did not type verification code correctly.");
 		}
 		else if($("#p1").val() !== $("#p2").val() ){

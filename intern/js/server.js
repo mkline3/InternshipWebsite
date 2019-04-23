@@ -76,7 +76,7 @@ app.get('/login', async (req, res) =>{
 
     try{
        login = await pool.query('select * from users ');
-
+          console.log(login.rows);
           res.json(login.rows);
     }
     catch(e){
